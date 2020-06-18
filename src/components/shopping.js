@@ -92,48 +92,52 @@ class Shopping extends React.Component {
         console.log('saveHandler', this.state.category, this.state.name, this.state.price,
             this.state.uploadedImage, this.state.uploadedImage.name, this.state.toprating
         );
+        if (this.state.edit) {
 
-        // console.log('id', Collection.hats.items[Collection.hats.items.length - 1].id + 1)
-        if (this.state.category === 'hats') {
-            let data = {
-                id: Collection.hats.items[Collection.hats.items.length - 1].id + 1,
-                name: this.state.name,
-                price: this.state.price,
-                toprating: this.state.toprating,
-                imageUrl: this.state.uploadedImage.name,
-            }
-            Collection.hats.items.push(data);
         }
-        else if (this.state.category === 'sneakers') {
-            let data = {
-                id: Collection.sneakers.items[Collection.sneakers.items.length - 1].id + 1,
-                name: this.state.name,
-                price: this.state.price,
-                toprating: this.state.toprating,
-                imageUrl: this.state.uploadedImage.name,
+        else {
+            if (this.state.category === 'hats') {
+                let data = {
+                    id: Collection.hats.items[Collection.hats.items.length - 1].id + 1,
+                    name: this.state.name,
+                    price: this.state.price,
+                    toprating: this.state.toprating,
+                    imageUrl: this.state.uploadedImage.name,
+                }
+                Collection.hats.items.push(data);
             }
-            Collection.sneakers.items.push(data);
-        }
-        else if (this.state.category === 'jackets') {
-            let data = {
-                id: Collection.jackets.items[Collection.jackets.items.length - 1].id + 1,
-                name: this.state.name,
-                price: this.state.price,
-                toprating: this.state.toprating,
-                imageUrl: this.state.uploadedImage.name,
+            else if (this.state.category === 'sneakers') {
+                let data = {
+                    id: Collection.sneakers.items[Collection.sneakers.items.length - 1].id + 1,
+                    name: this.state.name,
+                    price: this.state.price,
+                    toprating: this.state.toprating,
+                    imageUrl: this.state.uploadedImage.name,
+                }
+                Collection.sneakers.items.push(data);
             }
-            Collection.jackets.items.push(data);
-        }
-        else if (this.state.category === 'mens') {
-            let data = {
-                id: Collection.mens.items[Collection.mens.items.length - 1].id + 1,
-                name: this.state.name,
-                price: this.state.price,
-                toprating: this.state.toprating,
-                imageUrl: this.state.uploadedImage.name,
+            else if (this.state.category === 'jackets') {
+                let data = {
+                    id: Collection.jackets.items[Collection.jackets.items.length - 1].id + 1,
+                    name: this.state.name,
+                    price: this.state.price,
+                    toprating: this.state.toprating,
+                    imageUrl: this.state.uploadedImage.name,
+                }
+                Collection.jackets.items.push(data);
             }
-            Collection.mens.items.push(data);
+            else if (this.state.category === 'mens') {
+                let data = {
+                    id: Collection.mens.items[Collection.mens.items.length - 1].id + 1,
+                    name: this.state.name,
+                    price: this.state.price,
+                    toprating: this.state.toprating,
+                    imageUrl: this.state.uploadedImage.name,
+                }
+                Collection.mens.items.push(data);
+            }
         }
+
         this.popupModal();
         this.setState({ name: '', price: 0, toprating: false, imageName: null, edit: false })
     }
@@ -302,18 +306,15 @@ class Shopping extends React.Component {
                             {this.state.filterData ?
                                 this.state.filterData.map((val) => {
                                     return (
-
                                         <Card onClick={() => this.editHandler(val)}
                                             style={{ maxWidth: 250, maxHeight: 500, margin: '0.6%', cursor: 'pointer' }}>
                                             <CardImg top style={{ height: '75%' }}
-
                                                 src={val.imageUrl} alt="Card image cap" />
                                             <CardBody className="text-center" >
                                                 <span>{val.name}</span><br />
                                                 <span>${val.price}</span>
                                             </CardBody>
                                         </Card>
-
                                     );
                                 })
                                 :
