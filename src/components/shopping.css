@@ -81,20 +81,53 @@
   }
   .close-button {
     float: right;
-    width: 1.5rem;
-    line-height: 1.5rem;
+    width: 1.75rem;
+    line-height: 1.75rem;
     text-align: center;
     cursor: pointer;
-    border-radius: 0.25rem;
-    background-color: lightgray;
+    border-radius: 0.75rem;
+    background-color: #ef2319;
+    color: aliceblue;
+    position: relative;
+    /* margin-right: -18%; */
+    margin-left: 100%;
+    margin-top: -8%;
   }
   .close-button:hover {
-    background-color: darkgray;
+    background-color: #c4140b;
   }
+  /* .show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+  } */
   .show-modal {
+    display: block;
     opacity: 1;
     visibility: visible;
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
   }
-  
+
+  .input-width{
+    width: 95%;
+  }
+  .save{
+    width: 27%;
+    border: none;
+    background: #f54251;                            
+  }
+  .cancel{
+    width: 27%;
+    border: none;
+  }
+  .font-style{
+    font-weight: 600;
+    font-size: 18px;
+    /* margin: 1px; */
+    padding-bottom: 2px;
+  }
+  .bottom-padding{
+    padding-bottom: 12px;
+  }
