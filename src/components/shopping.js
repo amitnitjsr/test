@@ -28,7 +28,7 @@ class Shopping extends React.Component {
         )
     }
     popupModal = () => {
-        console.log('popupModal', this.state.open)
+
         this.setState((prevState) => {
             return { open: !prevState.open }
         })
@@ -36,26 +36,26 @@ class Shopping extends React.Component {
     render() {
 
         const openClass = `modal ${this.state.open ? "show-modal" : ""}`;
-        console.log('Data', this.state.cardData, this.state.topProduct, openClass)
+        console.log('Data', this.state.cardData, this.state.topProduct, openClass, this.state.open)
         return (
             <div style={{ marginLeft: '2%' }}>
                 <Row>
                     <Col className="col-md-2 col-sm-2"><span><h2>Product</h2></span></Col>
                     <Col className="col-md-2 col-sm-2 ml-auto"><Button className="button-color">Add Product</Button></Col>
                     {/* <button class="trigger" onClick={() => this.popupModal()}>Click here to trigger the modal!</button> */}
-                    <div>
-                        <button className="trigger" onClick={this.popupModal}>
-                            Open
+
+                    <button className="trigger" onClick={this.popupModal}>
+                        Open
                     </button>
-                        <div className={openClass}>
-                            <div className="modal-content">
-                                <span className="close-button" onClick={this.popupModal}>
-                                    ×
+                    <div className={openClass}>
+                        <div className="modal-content">
+                            <span className="close-button" onClick={this.popupModal}>
+                                ×
                             </span>
-                                <h1>Hello, I am a modal!</h1><hr />
-                            </div>
+                            <h1>Hello, I am a modal!</h1><hr />
                         </div>
                     </div>
+
                 </Row>
                 <Row>
                     <Col className="col-md-2 col-sm-2"><span> CATEGORIES</span></Col>
