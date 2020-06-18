@@ -17,6 +17,11 @@ class Shopping extends React.Component {
         open: false,
         category: 'hats',
         toprating: false,
+        uploadedImage: null,
+        imageName: null,
+        price: 0,
+        name: '',
+        edit: false,
         topProduct: Collection.hats.items.filter(
             item => item.rating === 5
         )
@@ -28,12 +33,17 @@ class Shopping extends React.Component {
     }
     inputHandler = (name, value) => {
         this.setState(
-            { [name]: value }
+            { [name]: value }, () => {
+                // console.log('uploadedImage', this.state.uploadedImage)
+                // if (name === 'uploadedImage')
+                //     this.setState({ imageName: this.state.uploadedImage.name })
+            }
         );
     }
+
     popupModal = () => {
         this.setState({
-            open: !this.state.open
+            open: !this.state.open, edit: false
         });
     }
     checkToggle = () => {
@@ -68,7 +78,6 @@ class Shopping extends React.Component {
 
     }
     selectProductType = (type) => {
-
         this.setState({ filterData: null })
         if (type === 'hats')
             this.setState({ cardData: Collection.hats.items });
@@ -78,17 +87,69 @@ class Shopping extends React.Component {
             this.setState({ cardData: Collection.jackets.items });
         else if (type === 'mens')
             this.setState({ cardData: Collection.mens.items })
+    }
+    saveHandler = () => {
+        console.log('saveHandler', this.state.category, this.state.name, this.state.price,
+            this.state.uploadedImage, this.state.uploadedImage.name, this.state.toprating
+        );
+
+        // console.log('id', Collection.hats.items[Collection.hats.items.length - 1].id + 1)
+        if (this.state.category === 'hats') {
+            let data = {
+                id: Collection.hats.items[Collection.hats.items.length - 1].id + 1,
+                name: this.state.name,
+                price: this.state.price,
+                toprating: this.state.toprating,
+                imageUrl: this.state.uploadedImage.name,
+            }
+            Collection.hats.items.push(data);
+        }
+        else if (this.state.category === 'sneakers') {
+            let data = {
+                id: Collection.sneakers.items[Collection.sneakers.items.length - 1].id + 1,
+                name: this.state.name,
+                price: this.state.price,
+                toprating: this.state.toprating,
+                imageUrl: this.state.uploadedImage.name,
+            }
+            Collection.sneakers.items.push(data);
+        }
+        else if (this.state.category === 'jackets') {
+            let data = {
+                id: Collection.jackets.items[Collection.jackets.items.length - 1].id + 1,
+                name: this.state.name,
+                price: this.state.price,
+                toprating: this.state.toprating,
+                imageUrl: this.state.uploadedImage.name,
+            }
+            Collection.jackets.items.push(data);
+        }
+        else if (this.state.category === 'mens') {
+            let data = {
+                id: Collection.mens.items[Collection.mens.items.length - 1].id + 1,
+                name: this.state.name,
+                price: this.state.price,
+                toprating: this.state.toprating,
+                imageUrl: this.state.uploadedImage.name,
+            }
+            Collection.mens.items.push(data);
+        }
+        this.popupModal();
+        this.setState({ name: '', price: 0, toprating: false, imageName: null, edit: false })
+    }
+
+    editHandler = (value) => {
+        this.popupModal();
+        // console.log('editHandler', value);
+        this.setState({ name: value.name, imageName: value.imageUrl, price: value.price, edit: true })
 
     }
-    render() {
 
+    render() {
         const openClass = `modal ${this.state.open ? "show-modal" : ""}`;
         console.log('Data', this.state.cardData);
-
-
         return (
             <div style={{ marginLeft: '2%' }}>
-
                 <Row>
                     <Col className="col-md-2 col-sm-2"><span><h2>Product</h2></span></Col>
                     <Col className="col-md-2 col-sm-2 ml-auto"><Button className="button-color"
@@ -100,7 +161,9 @@ class Shopping extends React.Component {
                             <span className="close-button" onClick={this.popupModal}>
                                 X
                             </span>
-                            <span style={{ textAlign: 'center' }}><h3>Add Product</h3></span><br />
+                            <span style={{ textAlign: 'center' }}>
+                                <h3> {this.state.edit ? 'Edit Product' : 'Add Product'}</h3>
+                            </span><br />
                             <span className="font-style">Product Category</span>
                             <span className="bottom-padding">
                                 <select className="input-width" onClick={(event) => this.inputHandler('category', event.target.value)}
@@ -122,13 +185,18 @@ class Shopping extends React.Component {
                                 Product Title
                             </span>
                             <span className="bottom-padding">
-                                <input className="input-width" placeholder={'Enter product title'} />
+                                <input className="input-width" placeholder={'Enter product title'}
+                                    value={this.state.name}
+                                    onChange={(e) => this.inputHandler('name', e.target.value)} />
                             </span>
                             <span className="font-style">
                                 Price
                             </span>
                             <span className="bottom-padding">
-                                <input type="number" min="1" max="599" className="input-width" placeholder={'Enter price'} />
+                                <input type="number" min="1" max="599" className="input-width"
+                                    value={this.state.price}
+                                    onChange={(e) => this.inputHandler('price', e.target.value)}
+                                    placeholder={'Enter price'} />
                             </span>
                             <span className="font-style">
                                 Top Product
@@ -141,11 +209,15 @@ class Shopping extends React.Component {
                                 Upload Product Image
                             </span>
                             <span className="bottom-padding">
-                                <input type="file" id="img" name="img" accept="image/*" />
+                                <input type="file" id="img" name="img" accept="image/*"
+                                    // value={this.state.imageName}
+                                    onChange={(event) => this.inputHandler('uploadedImage', event.target.files[0])} />
                             </span>
                             <span style={{ textAlign: 'center' }}>
-                                <button className="cancel">Cancel</button>&nbsp;&nbsp;&nbsp;
-                                <button className="save">Save</button>
+                                <button className="cancel" onClick={this.popupModal}>Cancel</button>&nbsp;&nbsp;&nbsp;
+                                <button className="save" onClick={this.saveHandler}>
+                                    {this.state.edit ? 'Edit' : 'Save'}
+                                </button>
                             </span>
                         </div>
                     </div>
@@ -208,13 +280,11 @@ class Shopping extends React.Component {
                                                             textAlign: 'initial'
                                                         }}>
                                                             <span>{val.name}</span><br />
-
                                                             <span class="fa fa-star checked"></span>
                                                             <span class="fa fa-star checked"></span>
                                                             <span class="fa fa-star checked"></span>
                                                             <span class="fa fa-star checked"></span>
                                                             <span class="fa fa-star checked"></span><br />
-
                                                             <span>${val.price}</span>
                                                         </div>
                                                     </Row>
@@ -226,25 +296,31 @@ class Shopping extends React.Component {
                             </div>
                         </div>
                     </Col>
+                    {/* //Card Render tab */}
                     <Col>
                         <div className="parent">
                             {this.state.filterData ?
                                 this.state.filterData.map((val) => {
                                     return (
-                                        <Card style={{ maxWidth: 250, maxHeight: 500, margin: '0.6%' }}>
+
+                                        <Card onClick={() => this.editHandler(val)}
+                                            style={{ maxWidth: 250, maxHeight: 500, margin: '0.6%', cursor: 'pointer' }}>
                                             <CardImg top style={{ height: '75%' }}
+
                                                 src={val.imageUrl} alt="Card image cap" />
-                                            <CardBody className="text-center">
+                                            <CardBody className="text-center" >
                                                 <span>{val.name}</span><br />
                                                 <span>${val.price}</span>
                                             </CardBody>
                                         </Card>
+
                                     );
                                 })
                                 :
                                 this.state.cardData.map((val) => {
                                     return (
-                                        <Card style={{ maxWidth: 250, maxHeight: 500, margin: '0.6%' }}>
+                                        <Card onClick={() => this.editHandler(val)}
+                                            style={{ maxWidth: 250, maxHeight: 500, margin: '0.6%', cursor: 'pointer' }}>
                                             <CardImg top style={{ height: '75%' }}
                                                 src={val.imageUrl} alt="Card image cap" />
                                             <CardBody className="text-center">
@@ -259,6 +335,15 @@ class Shopping extends React.Component {
                         </div>
 
                     </Col>
+                </Row>
+                <Row>
+                    <div class="pagination">
+                        <span className="a">&laquo;</span>
+                        <span className="a active" >1</span>
+                        <span className="a" >2</span>
+                        <span className="a">3</span>
+                        <span className="a">&raquo;</span>
+                    </div>
                 </Row>
 
             </div >
