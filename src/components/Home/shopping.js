@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Row, Button, Col, ButtonDropdown, Card, CardBody, CardImg,
+    Row, Col, ButtonDropdown, Card, CardBody, CardImg,
     DropdownToggle, DropdownMenu, DropdownItem
 } from 'reactstrap';
 import Collection from '../../Data/collection';
@@ -30,7 +30,11 @@ class Shopping extends React.Component {
         cardLength: 0,
         topProduct: Collection.hats.items.filter(
             item => item.rating === 5
-        )
+        ),
+        active1: 'active',
+        active2: '',
+        active3: '',
+        active4: ''
     }
 
     componentDidMount() {
@@ -130,19 +134,34 @@ class Shopping extends React.Component {
     selectProductType = (type) => {
         this.setState({ filterData: null })
         if (type === 'hats')
-            this.setState({ cardData: Collection.hats.items, currentPage: 1 }, () => {
+            this.setState({
+                cardData: Collection.hats.items, currentPage: 1, active1: 'active',
+                active2: '', active3: '', active4: ''
+            }, () => {
                 this.paginationHandler();
             });
         else if (type === 'sneakers')
-            this.setState({ cardData: Collection.sneakers.items, currentPage: 1 }, () => {
+            this.setState({
+                cardData: Collection.sneakers.items, currentPage: 1,
+                active1: '',
+                active2: 'active', active3: '', active4: ''
+            }, () => {
                 this.paginationHandler();
             });
         else if (type === 'jackets')
-            this.setState({ cardData: Collection.jackets.items, currentPage: 1 }, () => {
+            this.setState({
+                cardData: Collection.jackets.items, currentPage: 1,
+                active1: '',
+                active2: '', active3: 'active', active4: ''
+            }, () => {
                 this.paginationHandler();
             });
         else if (type === 'mens')
-            this.setState({ cardData: Collection.mens.items, currentPage: 1 }, () => {
+            this.setState({
+                cardData: Collection.mens.items, currentPage: 1,
+                active1: '',
+                active2: '', active3: '', active4: 'active'
+            }, () => {
                 this.paginationHandler();
             })
     }
@@ -151,8 +170,8 @@ class Shopping extends React.Component {
         // console.log('saveHandler', this.state.category, this.state.name, this.state.price,
         //     this.state.uploadedImage, this.state.uploadedImage.name, this.state.toprating
         // );
-        const reader = new FileReader();
-        reader.readAsDataURL(this.state.uploadedImage)
+        // const reader = new FileReader();
+        // reader.readAsDataURL(this.state.uploadedImage)
 
         if (this.state.edit) {
 
@@ -218,8 +237,9 @@ class Shopping extends React.Component {
             <div style={{ marginLeft: '2%' }}>
                 <Row>
                     <Col className="col-md-2 col-sm-2"><span><h2>Product</h2></span></Col>
-                    <Col className="col-md-2 col-sm-2 ml-auto"><Button className="button-color"
-                        onClick={() => this.popupModal()}>Add Product</Button></Col>
+                    <Col className="col-md-2 col-sm-2 ml-auto">
+                        <button className="add"
+                            onClick={() => this.popupModal()}>Add Product</button></Col>
 
                     {/* HTML POPUP MODAL */}
                     <div className={openClass}>
@@ -289,8 +309,10 @@ class Shopping extends React.Component {
                     </div>
 
                 </Row>
+
                 <Row>
                     <Col className="col-md-2 col-sm-2"><span> CATEGORIES</span></Col>
+                    {/* DropdownMenu, sort by price */}
                     <Col className="col-md-2 col-sm-2 ml-auto">
                         <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={() => this.toggle()}
                         >
@@ -305,19 +327,21 @@ class Shopping extends React.Component {
                         </ButtonDropdown>
                     </Col>
                 </Row>
+                {/* Side bar, category of Items */}
                 <Row>
                     <Col className="col-md-2 col-sm-2">
                         <div >
                             <Card style={{ background: 'lightgray' }}>
                                 <CardBody>
-                                    <span className="pointer" onClick={() => this.selectProductType('hats')}>Hats</span><hr />
-                                    <span className="pointer" onClick={() => this.selectProductType('sneakers')}>Sneakers</span><hr />
-                                    <span className="pointer" onClick={() => this.selectProductType('jackets')}>Jackets</span><hr />
-                                    <span className="pointer" onClick={() => this.selectProductType('mens')}>Men</span>
+                                    <span className={`pointer ${this.state.active1}`} onClick={() => this.selectProductType('hats')}>Hats</span><hr />
+                                    <span className={`pointer ${this.state.active2}`} onClick={() => this.selectProductType('sneakers')}>Sneakers</span><hr />
+                                    <span className={`pointer ${this.state.active3}`} onClick={() => this.selectProductType('jackets')}>Jackets</span><hr />
+                                    <span className={`pointer ${this.state.active4}`} onClick={() => this.selectProductType('mens')}>Men</span>
                                 </CardBody>
                             </Card>
                         </div><br />
                         <div>
+                            {/* Filter functionality in sidebar */}
                             <div class="slidecontainer">
                                 <label>Filter By Price</label>
                                 <input type="range" min="1" max="599" value={this.state.range}
@@ -325,7 +349,8 @@ class Shopping extends React.Component {
                                     onChange={(event) => this.inputHandler('range', event.target.value)}
                                 />
                             </div>
-                            <Button onClick={() => this.sortingByPrice('price')} className="button-color1">Filter</Button>&nbsp;&nbsp;
+                            <button className="filter" onClick={() => this.sortingByPrice('price')} >
+                                Filter</button>&nbsp;&nbsp;
                             <label><span>Price: ${this.state.range}- $599 </span></label>
                         </div><br />
                         <div>
@@ -395,9 +420,7 @@ class Shopping extends React.Component {
                                     );
                                 })
                             }
-
                         </div>
-
                     </Col>
                 </Row>
                 <Row>
