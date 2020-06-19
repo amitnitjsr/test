@@ -183,8 +183,9 @@ class Shopping extends React.Component {
                     name: this.state.name,
                     price: this.state.price,
                     toprating: this.state.toprating,
-                    imageUrl: this.state.uploadedImage.name,
+                    imageUrl: this.state.uploadedImage,
                 }
+                console.log('hats add', data)
                 Collection.hats.items.push(data);
             }
             else if (this.state.category === 'sneakers') {
@@ -193,7 +194,7 @@ class Shopping extends React.Component {
                     name: this.state.name,
                     price: this.state.price,
                     toprating: this.state.toprating,
-                    imageUrl: this.state.uploadedImage.name,
+                    imageUrl: this.state.uploadedImage,
                 }
                 Collection.sneakers.items.push(data);
             }
@@ -203,7 +204,7 @@ class Shopping extends React.Component {
                     name: this.state.name,
                     price: this.state.price,
                     toprating: this.state.toprating,
-                    imageUrl: this.state.uploadedImage.name,
+                    imageUrl: this.state.uploadedImage,
                 }
                 Collection.jackets.items.push(data);
             }
@@ -213,14 +214,15 @@ class Shopping extends React.Component {
                     name: this.state.name,
                     price: this.state.price,
                     toprating: this.state.toprating,
-                    imageUrl: this.state.uploadedImage.name,
+                    imageUrl: this.state.uploadedImage,
                 }
                 Collection.mens.items.push(data);
             }
+            this.paginationHandler();
         }
 
         this.popupModal();
-        this.setState({ name: '', price: 0, toprating: false, imageName: null, edit: false })
+        this.setState({ name: '', price: 0, toprating: false, uploadedImage: '', edit: false })
     }
 
     editHandler = (value) => {
@@ -228,6 +230,14 @@ class Shopping extends React.Component {
         // console.log('editHandler', value);
         this.setState({ name: value.name, imageName: value.imageUrl, price: value.price, edit: true })
 
+    }
+
+    uploadImg = (val) => {
+        if (val) {
+            var img = document.querySelector('img');  // $('img')[0]
+            img.src = URL.createObjectURL(val); // set src to blob url
+            this.setState({ uploadedImage: img.src })
+        }
     }
 
     render() {
@@ -297,7 +307,7 @@ class Shopping extends React.Component {
                             <span className="bottom-padding">
                                 <input type="file" id="img" name="img" accept="image/*"
                                     // value={this.state.imageName}
-                                    onChange={(event) => this.inputHandler('uploadedImage', event.target.files[0])} />
+                                    onChange={(event) => this.uploadImg(event.target.files[0])} />
                             </span>
                             <span style={{ textAlign: 'center' }}>
                                 <button className="cancel" onClick={this.popupModal}>CANCEL</button>&nbsp;&nbsp;&nbsp;
