@@ -22,6 +22,7 @@ class Shopping extends React.Component {
         imageName: null,
         price: 0,
         name: '',
+        id: null,
         edit: false,
         page: 0,
         currentPage: 1,
@@ -41,59 +42,59 @@ class Shopping extends React.Component {
         this.paginationHandler();
     }
 
+    // Pagination Handler function
     paginationHandler = () => {
         const indexOfLastPost = this.state.currentPage * this.state.postsPerPage;
         const indexOfFirstPost = indexOfLastPost - this.state.postsPerPage;
         if (this.state.filterData) {
             this.setState({ cardLength: this.state.filterData.length });
-            // console.log('this.state.filterData.length', this.state.filterData.length)
-            // console.log('indexOfFirstPost', indexOfFirstPost, indexOfLastPost)
             const currentPosts = this.state.filterData.slice(indexOfFirstPost, indexOfLastPost);
             this.setState({ currentData: currentPosts, })
-            // console.log('filterData', currentPosts)
         } else {
             this.setState({ cardLength: this.state.cardData.length })
-            // console.log('this.state.cardData.length', this.state.cardData.length)
-            // console.log('indexOfFirstPost', indexOfFirstPost, indexOfLastPost)
             const currentPosts = this.state.cardData.slice(indexOfFirstPost, indexOfLastPost);
             this.setState({ currentData: currentPosts, })
-            // console.log('current', currentPosts)
         }
-
     }
+
+    // Category dropdown toggle button 
     toggle = () => {
         this.setState((prevState) => {
             return { dropdownOpen: !prevState.dropdownOpen }
-        })
+        });
     }
 
+    // Text input Handler
     inputHandler = (name, value) => {
         this.setState(
             { [name]: value }
         );
     }
 
+    // Selecting page Number in footer 
     paginate = (pageNumbers) => {
-
         this.setState({ currentPage: pageNumbers }, () => {
             this.paginationHandler();
         })
     }
 
+    // Add and Edit Popup Modal toggle
     popupModal = () => {
         this.setState({
             open: !this.state.open, edit: false
         });
     }
 
+    // top rating toggle function
     checkToggle = () => {
         this.setState({ toprating: !this.state.toprating })
     }
 
+    // Sorting Item by price and Filter by price of range
     sortingByPrice = (price) => {
 
         if (price === 'low') {
-            // console.log('current', this.state.currentData)
+
             if (this.state.filterData) {
                 this.state.filterData.sort((a, b) => (a.price > b.price) ? 1 : ((b.price > a.price) ? -1 : 0));
             }
@@ -131,6 +132,7 @@ class Shopping extends React.Component {
         }
     }
 
+    // sidebar, Cards on Click, selecting Items type such as Hats, Sneakers etc..
     selectProductType = (type) => {
         this.setState({ filterData: null })
         if (type === 'hats')
@@ -166,17 +168,57 @@ class Shopping extends React.Component {
             })
     }
 
+    // Add and Edit, both time calling this function 
     saveHandler = () => {
-        // console.log('saveHandler', this.state.category, this.state.name, this.state.price,
-        //     this.state.uploadedImage, this.state.uploadedImage.name, this.state.toprating
-        // );
-        // const reader = new FileReader();
-        // reader.readAsDataURL(this.state.uploadedImage)
 
         if (this.state.edit) {
+            // Edit functionality
+            if (this.state.category === 'hats') {
 
+                Collection.hats.items.filter(data => {
+                    if (data.id === this.state.id) {
+                        if (this.state.name) data.name = this.state.name;
+                        if (this.state.price) data.price = this.state.price;
+                        if (this.state.uploadedImage) data.imageUrl = this.state.uploadedImage;
+                    }
+                    return data;
+                })
+
+            }
+            else if (this.state.category === 'sneakers') {
+                Collection.sneakers.items.filter(data => {
+                    if (data.id === this.state.id) {
+                        if (this.state.name) data.name = this.state.name;
+                        if (this.state.price) data.price = this.state.price;
+                        if (this.state.uploadedImage) data.imageUrl = this.state.uploadedImage;
+                    }
+                    return data;
+                })
+            }
+            else if (this.state.category === 'jackets') {
+                Collection.jackets.items.filter(data => {
+                    if (data.id === this.state.id) {
+                        if (this.state.name) data.name = this.state.name;
+                        if (this.state.price) data.price = this.state.price;
+                        if (this.state.uploadedImage) data.imageUrl = this.state.uploadedImage;
+                    }
+                    return data;
+                })
+            }
+            else if (this.state.category === 'mens') {
+                Collection.mens.items.filter(data => {
+                    if (data.id === this.state.id) {
+                        if (this.state.name) data.name = this.state.name;
+                        if (this.state.price) data.price = this.state.price;
+                        if (this.state.uploadedImage) data.imageUrl = this.state.uploadedImage;
+                    }
+                    return data;
+                })
+            }
+            this.paginationHandler();
         }
         else {
+            // Add Functionality
             if (this.state.category === 'hats') {
                 let data = {
                     id: Collection.hats.items[Collection.hats.items.length - 1].id + 1,
@@ -185,7 +227,6 @@ class Shopping extends React.Component {
                     toprating: this.state.toprating,
                     imageUrl: this.state.uploadedImage,
                 }
-                console.log('hats add', data)
                 Collection.hats.items.push(data);
             }
             else if (this.state.category === 'sneakers') {
@@ -222,16 +263,19 @@ class Shopping extends React.Component {
         }
 
         this.popupModal();
-        this.setState({ name: '', price: 0, toprating: false, uploadedImage: '', edit: false })
+        this.setState({ name: '', price: 0, toprating: false, edit: false })
     }
 
+    // Click on Card, editHandler function calling
     editHandler = (value) => {
         this.popupModal();
-        // console.log('editHandler', value);
-        this.setState({ name: value.name, imageName: value.imageUrl, price: value.price, edit: true })
+        this.setState({ id: value.id, name: value.name, uploadedImage: value.imageUrl, price: value.price, edit: true })
 
     }
 
+    // Click on Upload button, uploadImg function calling
+    // pre-condition: if same image, twice time wants continous upload , only first time call the function
+    // But alternate time working properly
     uploadImg = (val) => {
         if (val) {
             var img = document.querySelector('img');  // $('img')[0]
@@ -241,8 +285,9 @@ class Shopping extends React.Component {
     }
 
     render() {
+
         const openClass = `modal ${this.state.open ? "show-modal" : ""}`;
-        console.log('Data', this.state.cardData);
+
         return (
             <div style={{ marginLeft: '2%' }}>
                 <Row>
@@ -317,7 +362,6 @@ class Shopping extends React.Component {
                             </span>
                         </div>
                     </div>
-
                 </Row>
 
                 <Row>
