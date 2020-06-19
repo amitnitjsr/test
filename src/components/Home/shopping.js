@@ -26,7 +26,7 @@ class Shopping extends React.Component {
         edit: false,
         page: 0,
         currentPage: 1,
-        postsPerPage: 4,
+        postsPerPage: 8,
         currentData: null,
         cardLength: 0,
         topProduct: Collection.hats.items.filter(
@@ -316,7 +316,7 @@ class Shopping extends React.Component {
         const openClass = `modal ${this.state.open ? "show-modal" : ""}`;
 
         return (
-            <div style={{ marginLeft: '2%' }}>
+            <div style={{}}>
                 <Row>
                     <Col className="col-md-2 col-sm-2"><span><h2>Product</h2></span></Col>
                     <Col className="col-md-2 col-sm-2 ml-auto">
@@ -411,7 +411,7 @@ class Shopping extends React.Component {
                 </Row>
                 {/* Side bar, category of Items */}
                 <Row>
-                    <Col className="col-md-2 col-sm-2">
+                    <Col className="col-md-3 col-sm-3">
                         <div >
                             <Card style={{ background: 'lightgray' }}>
                                 <CardBody>
@@ -424,6 +424,7 @@ class Shopping extends React.Component {
                         </div><br />
                         <div>
                             {/* Filter functionality in sidebar */}
+
                             <div class="slidecontainer">
                                 <label>Filter By Price</label>
                                 <input type="range" min="1" max="599" value={this.state.range}
@@ -431,9 +432,16 @@ class Shopping extends React.Component {
                                     onChange={(event) => this.inputHandler('range', event.target.value)}
                                 />
                             </div>
+
+
                             <button className="filter" onClick={() => this.sortingByPrice('price')} >
-                                Filter</button>&nbsp;&nbsp;
+                                Filter</button>
+
                             <label><span>Price: ${this.state.range}- $599 </span></label>
+
+
+
+
                         </div><br />
                         <div>
                             <label> TOP PRODUCTS </label>
@@ -444,10 +452,11 @@ class Shopping extends React.Component {
                                             <Card style={{ maxWidth: '100%', maxHeight: 300, margin: '0.6%' }}>
                                                 <CardBody className="text-center">
                                                     <Row>
-                                                        <Col>
+                                                        <Col >
                                                             <CardImg style={{ maxHeight: 50, maxWidth: 50, marginRight: 34 }}
                                                                 src={val.imageUrl} alt="Card image cap" />
                                                         </Col>
+
                                                         <div style={{
                                                             position: 'relative',
                                                             textAlign: 'initial'
@@ -460,6 +469,7 @@ class Shopping extends React.Component {
                                                             <span className="fa fa-star checked"></span><br />
                                                             <span>${val.price}</span>
                                                         </div>
+
                                                     </Row>
                                                 </CardBody>
                                             </Card>
@@ -470,7 +480,7 @@ class Shopping extends React.Component {
                         </div>
                     </Col>
                     {/* //Card Render tab */}
-                    <Col>
+                    <Col className="col-md-9 col-sm-9 ml-auto">
                         <div className="parent">
                             {this.state.filterData ?
                                 this.state.currentData.map((val) => {

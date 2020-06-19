@@ -141,6 +141,8 @@
     cursor: pointer;
     border-radius: 4px;
     box-shadow: 0 8px 12px 0 #ffb3b3, 0 6px 20px 0 #ffb3b3;
+    position: relative;
+    margin-right: 36%;
 }
 .add{
       width: 141px;
@@ -200,4 +202,15 @@
   }
   
   .a:hover:not(.active) {background-color: #ddd;}
+
+  .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    /* margin-right: 18px;
+    margin-left: 60px; */
+    margin: 2%;
+    /* margin-bottom: 26px; */
+}
   
