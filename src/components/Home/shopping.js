@@ -26,7 +26,7 @@ class Shopping extends React.Component {
         edit: false,
         page: 0,
         currentPage: 1,
-        postsPerPage: 8,
+        postsPerPage: 9,
         currentData: null,
         cardLength: 0,
         topProduct: Collection.hats.items.filter(
@@ -486,7 +486,7 @@ class Shopping extends React.Component {
                                 this.state.currentData.map((val) => {
                                     return (
                                         <Card onClick={() => this.editHandler(val)}
-                                            style={{ maxWidth: 250, maxHeight: 500, margin: '0.6%', cursor: 'pointer' }}>
+                                            style={{ maxWidth: 250, maxHeight: 500, margin: '2.6%', cursor: 'pointer' }}>
                                             <CardImg top style={{ height: '75%' }}
                                                 src={val.imageUrl} alt="Card image cap" />
                                             <CardBody className="text-center" >
@@ -501,7 +501,7 @@ class Shopping extends React.Component {
                                 this.state.currentData.map((val) => {
                                     return (
                                         <Card onClick={() => this.editHandler(val)}
-                                            style={{ maxWidth: 250, maxHeight: 500, margin: '0.6%', cursor: 'pointer' }}>
+                                            style={{ maxWidth: 250, maxHeight: 500, margin: '3.3%', cursor: 'pointer', marginTop: '10px' }}>
                                             <CardImg top style={{ height: '75%' }}
                                                 src={val.imageUrl} alt="Card image cap" />
                                             <CardBody className="text-center">
