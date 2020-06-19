@@ -316,10 +316,10 @@ class Shopping extends React.Component {
         const openClass = `modal ${this.state.open ? "show-modal" : ""}`;
 
         return (
-            <div style={{}}>
+            <div className="whole-table">
                 <Row>
                     <Col className="col-md-2 col-sm-2"><span><h2>Product</h2></span></Col>
-                    <Col className="col-md-2 col-sm-2 ml-auto">
+                    <Col className="col-md-2 col-sm-2 ml-auto add-prod-btn" >
                         <button className="add"
                             onClick={() => this.popupModal()}>Add Product</button></Col>
 
@@ -395,7 +395,7 @@ class Shopping extends React.Component {
                 <Row>
                     <Col className="col-md-2 col-sm-2"><span> CATEGORIES</span></Col>
                     {/* DropdownMenu, sort by price */}
-                    <Col className="col-md-2 col-sm-2 ml-auto">
+                    <Col className="col-md-2 col-sm-2 ml-auto add-prod-btn" >
                         <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={() => this.toggle()}
                         >
                             <DropdownToggle style={{ background: "transparent", color: "black" }} caret>
@@ -432,16 +432,9 @@ class Shopping extends React.Component {
                                     onChange={(event) => this.inputHandler('range', event.target.value)}
                                 />
                             </div>
-
-
                             <button className="filter" onClick={() => this.sortingByPrice('price')} >
                                 Filter</button>
-
                             <label><span>Price: ${this.state.range}- $599 </span></label>
-
-
-
-
                         </div><br />
                         <div>
                             <label> TOP PRODUCTS </label>
@@ -449,7 +442,7 @@ class Shopping extends React.Component {
                                 {this.state.topProduct ?
                                     this.state.topProduct.map((val) => {
                                         return (
-                                            <Card style={{ maxWidth: '100%', maxHeight: 300, margin: '0.6%' }}>
+                                            <Card className="top-prod">
                                                 <CardBody className="text-center">
                                                     <Row>
                                                         <Col >
@@ -480,13 +473,13 @@ class Shopping extends React.Component {
                         </div>
                     </Col>
                     {/* //Card Render tab */}
-                    <Col className="col-md-9 col-sm-9 ml-auto">
+                    <Col className="col-md-9 col-sm-9 ml-auto img-card-pos" >
                         <div className="parent">
                             {this.state.filterData ?
                                 this.state.currentData.map((val) => {
                                     return (
                                         <Card onClick={() => this.editHandler(val)}
-                                            style={{ maxWidth: 250, maxHeight: 500, margin: '2.6%', cursor: 'pointer' }}>
+                                            style={{ maxWidth: 250, maxHeight: 500, margin: '3.5%', cursor: 'pointer', marginTop: '10px' }} >
                                             <CardImg top style={{ height: '75%' }}
                                                 src={val.imageUrl} alt="Card image cap" />
                                             <CardBody className="text-center" >
@@ -501,7 +494,7 @@ class Shopping extends React.Component {
                                 this.state.currentData.map((val) => {
                                     return (
                                         <Card onClick={() => this.editHandler(val)}
-                                            style={{ maxWidth: 250, maxHeight: 500, margin: '3.3%', cursor: 'pointer', marginTop: '10px' }}>
+                                            style={{ maxWidth: 250, maxHeight: 500, margin: '3.5%', cursor: 'pointer', marginTop: '10px' }}>
                                             <CardImg top style={{ height: '75%' }}
                                                 src={val.imageUrl} alt="Card image cap" />
                                             <CardBody className="text-center">
