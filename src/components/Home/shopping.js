@@ -300,9 +300,9 @@ class Shopping extends React.Component {
                                     onChange={(event) => this.inputHandler('uploadedImage', event.target.files[0])} />
                             </span>
                             <span style={{ textAlign: 'center' }}>
-                                <button className="cancel" onClick={this.popupModal}>Cancel</button>&nbsp;&nbsp;&nbsp;
+                                <button className="cancel" onClick={this.popupModal}>CANCEL</button>&nbsp;&nbsp;&nbsp;
                                 <button className="save" onClick={this.saveHandler}>
-                                    {this.state.edit ? 'Edit' : 'Save'}
+                                    {this.state.edit ? 'EDIT' : 'SAVE'}
                                 </button>
                             </span>
                         </div>

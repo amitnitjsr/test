@@ -115,11 +115,15 @@
 
   .input-width{
     width: 95%;
+    padding: 8px;
   }
   .save{
     width: 27%;
     border: none;
-    background: #f54251;                            
+    background: #f54251;        
+    border-radius: 4px;    
+    color: aliceblue;   
+    padding: 5px;             
   }
   .filter {
     width: 27%;
@@ -156,6 +160,8 @@
   .cancel{
     width: 27%;
     border: none;
+    border-radius: 4px;
+    padding: 5px;
   }
   .font-style{
     font-weight: 600;
