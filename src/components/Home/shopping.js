@@ -30,7 +30,7 @@ class Shopping extends React.Component {
         currentData: null,
         cardLength: 0,
         topProduct: Collection.hats.items.filter(
-            item => item.rating === 5
+            item => item.toprating === true
         ),
         active1: 'active',
         active2: '',
@@ -132,6 +132,14 @@ class Shopping extends React.Component {
         }
     }
 
+    // Top Product filter
+    topProductFilter = (type) => {
+        this.setState({
+            topProduct: type.filter(
+                item => item.toprating === true
+            )
+        })
+    }
     // sidebar, Cards on Click, selecting Items type such as Hats, Sneakers etc..
     selectProductType = (type) => {
         this.setState({ filterData: null })
@@ -140,6 +148,7 @@ class Shopping extends React.Component {
                 cardData: Collection.hats.items, currentPage: 1, active1: 'active',
                 active2: '', active3: '', active4: ''
             }, () => {
+                this.topProductFilter(this.state.cardData);
                 this.paginationHandler();
             });
         else if (type === 'sneakers')
@@ -148,6 +157,7 @@ class Shopping extends React.Component {
                 active1: '',
                 active2: 'active', active3: '', active4: ''
             }, () => {
+                this.topProductFilter(this.state.cardData);
                 this.paginationHandler();
             });
         else if (type === 'jackets')
@@ -156,6 +166,7 @@ class Shopping extends React.Component {
                 active1: '',
                 active2: '', active3: 'active', active4: ''
             }, () => {
+                this.topProductFilter(this.state.cardData);
                 this.paginationHandler();
             });
         else if (type === 'mens')
@@ -164,8 +175,10 @@ class Shopping extends React.Component {
                 active1: '',
                 active2: '', active3: '', active4: 'active'
             }, () => {
+                this.topProductFilter(this.state.cardData);
                 this.paginationHandler();
             })
+
     }
 
     // Add and Edit, both time calling this function 
@@ -180,10 +193,11 @@ class Shopping extends React.Component {
                         if (this.state.name) data.name = this.state.name;
                         if (this.state.price) data.price = this.state.price;
                         if (this.state.uploadedImage) data.imageUrl = this.state.uploadedImage;
+                        data.toprating = this.state.toprating;
                     }
                     return data;
                 })
-
+                this.topProductFilter(Collection.hats.items);
             }
             else if (this.state.category === 'sneakers') {
                 Collection.sneakers.items.filter(data => {
@@ -191,9 +205,11 @@ class Shopping extends React.Component {
                         if (this.state.name) data.name = this.state.name;
                         if (this.state.price) data.price = this.state.price;
                         if (this.state.uploadedImage) data.imageUrl = this.state.uploadedImage;
+                        data.toprating = this.state.toprating;
                     }
                     return data;
                 })
+                this.topProductFilter(Collection.sneakers.items);
             }
             else if (this.state.category === 'jackets') {
                 Collection.jackets.items.filter(data => {
@@ -201,9 +217,11 @@ class Shopping extends React.Component {
                         if (this.state.name) data.name = this.state.name;
                         if (this.state.price) data.price = this.state.price;
                         if (this.state.uploadedImage) data.imageUrl = this.state.uploadedImage;
+                        data.toprating = this.state.toprating;
                     }
                     return data;
                 })
+                this.topProductFilter(Collection.jackets.items);
             }
             else if (this.state.category === 'mens') {
                 Collection.mens.items.filter(data => {
@@ -211,9 +229,11 @@ class Shopping extends React.Component {
                         if (this.state.name) data.name = this.state.name;
                         if (this.state.price) data.price = this.state.price;
                         if (this.state.uploadedImage) data.imageUrl = this.state.uploadedImage;
+                        data.toprating = this.state.toprating;
                     }
                     return data;
                 })
+                this.topProductFilter(Collection.mens.items);
             }
             this.paginationHandler();
         }
@@ -228,6 +248,7 @@ class Shopping extends React.Component {
                     imageUrl: this.state.uploadedImage,
                 }
                 Collection.hats.items.push(data);
+                this.topProductFilter(Collection.hats.items);
             }
             else if (this.state.category === 'sneakers') {
                 let data = {
@@ -238,6 +259,7 @@ class Shopping extends React.Component {
                     imageUrl: this.state.uploadedImage,
                 }
                 Collection.sneakers.items.push(data);
+                this.topProductFilter(Collection.sneakers.items);
             }
             else if (this.state.category === 'jackets') {
                 let data = {
@@ -248,6 +270,7 @@ class Shopping extends React.Component {
                     imageUrl: this.state.uploadedImage,
                 }
                 Collection.jackets.items.push(data);
+                this.topProductFilter(Collection.jackets.items);
             }
             else if (this.state.category === 'mens') {
                 let data = {
@@ -258,8 +281,10 @@ class Shopping extends React.Component {
                     imageUrl: this.state.uploadedImage,
                 }
                 Collection.mens.items.push(data);
+                this.topProductFilter(Collection.mens.items);
             }
             this.paginationHandler();
+
         }
 
         this.popupModal();
@@ -269,8 +294,10 @@ class Shopping extends React.Component {
     // Click on Card, editHandler function calling
     editHandler = (value) => {
         this.popupModal();
-        this.setState({ id: value.id, name: value.name, uploadedImage: value.imageUrl, price: value.price, edit: true })
-
+        this.setState({
+            id: value.id, name: value.name, uploadedImage: value.imageUrl,
+            price: value.price, toprating: value.toprating, edit: true
+        })
     }
 
     // Click on Upload button, uploadImg function calling
@@ -343,7 +370,8 @@ class Shopping extends React.Component {
                                 Top Product
                             </span>
                             <span className="bottom-padding">
-                                <input type="checkbox" value={this.state.toprating}
+                                <input type="checkbox"
+                                    checked={this.state.toprating}
                                     onClick={() => this.checkToggle()} />
                             </span>
                             <span className="font-style">
