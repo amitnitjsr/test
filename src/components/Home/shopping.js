@@ -3,7 +3,8 @@ import {
     Row, Button, Col, ButtonDropdown, Card, CardBody, CardImg,
     DropdownToggle, DropdownMenu, DropdownItem
 } from 'reactstrap';
-import Collection from '../Data/collection';
+import Collection from '../../Data/collection';
+import Pagination from '../Pagination/Pagination';
 import './shopping.css';
 
 const categories = [{ label: 'hats', value: 'hats' }, { label: 'sneakers', value: 'sneakers' },
@@ -22,23 +23,57 @@ class Shopping extends React.Component {
         price: 0,
         name: '',
         edit: false,
+        page: 0,
+        currentPage: 1,
+        postsPerPage: 4,
+        currentData: null,
+        cardLength: 0,
         topProduct: Collection.hats.items.filter(
             item => item.rating === 5
         )
+    }
+
+    componentDidMount() {
+        this.paginationHandler();
+    }
+
+    paginationHandler = () => {
+        const indexOfLastPost = this.state.currentPage * this.state.postsPerPage;
+        const indexOfFirstPost = indexOfLastPost - this.state.postsPerPage;
+        if (this.state.filterData) {
+            this.setState({ cardLength: this.state.filterData.length });
+            // console.log('this.state.filterData.length', this.state.filterData.length)
+            // console.log('indexOfFirstPost', indexOfFirstPost, indexOfLastPost)
+            const currentPosts = this.state.filterData.slice(indexOfFirstPost, indexOfLastPost);
+            this.setState({ currentData: currentPosts, })
+            // console.log('filterData', currentPosts)
+        } else {
+            this.setState({ cardLength: this.state.cardData.length })
+            // console.log('this.state.cardData.length', this.state.cardData.length)
+            // console.log('indexOfFirstPost', indexOfFirstPost, indexOfLastPost)
+            const currentPosts = this.state.cardData.slice(indexOfFirstPost, indexOfLastPost);
+            this.setState({ currentData: currentPosts, })
+            // console.log('current', currentPosts)
+        }
+
     }
     toggle = () => {
         this.setState((prevState) => {
             return { dropdownOpen: !prevState.dropdownOpen }
         })
     }
+
     inputHandler = (name, value) => {
         this.setState(
-            { [name]: value }, () => {
-                // console.log('uploadedImage', this.state.uploadedImage)
-                // if (name === 'uploadedImage')
-                //     this.setState({ imageName: this.state.uploadedImage.name })
-            }
+            { [name]: value }
         );
+    }
+
+    paginate = (pageNumbers) => {
+
+        this.setState({ currentPage: pageNumbers }, () => {
+            this.paginationHandler();
+        })
     }
 
     popupModal = () => {
@@ -46,6 +81,7 @@ class Shopping extends React.Component {
             open: !this.state.open, edit: false
         });
     }
+
     checkToggle = () => {
         this.setState({ toprating: !this.state.toprating })
     }
@@ -53,45 +89,71 @@ class Shopping extends React.Component {
     sortingByPrice = (price) => {
 
         if (price === 'low') {
-            if (this.state.filterData)
+            // console.log('current', this.state.currentData)
+            if (this.state.filterData) {
                 this.state.filterData.sort((a, b) => (a.price > b.price) ? 1 : ((b.price > a.price) ? -1 : 0));
-            else
+            }
+            else {
                 this.state.cardData.sort((a, b) => (a.price > b.price) ? 1 : ((b.price > a.price) ? -1 : 0));
+            }
+            this.setState({ currentPage: 1 });
+            this.paginationHandler();
         }
         else if (price === 'high') {
-            if (this.state.filterData)
+            if (this.state.filterData) {
                 this.state.filterData.sort((a, b) => (a.price < b.price) ? 1 : ((b.price < a.price) ? -1 : 0));
-            else
+            }
+            else {
                 this.state.cardData.sort((a, b) => (a.price < b.price) ? 1 : ((b.price < a.price) ? -1 : 0));
+            }
+            this.setState({ currentPage: 1 });
+            this.paginationHandler();
         }
         else if (price === 'default') {
-            if (this.state.filterData)
+            if (this.state.filterData) {
                 this.state.filterData.sort((a, b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0));
-            else
+            }
+            else {
                 this.state.cardData.sort((a, b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0));
-
+            }
+            this.setState({ currentPage: 1 });
+            this.paginationHandler();
         }
         else if (price === 'price') {
             let d = this.state.cardData.filter(f => ((f.price) <= this.state.range))
-            this.setState({ filterData: d })
+            this.setState({ filterData: d, currentPage: 1 }, () => {
+                this.paginationHandler();
+            })
         }
-
     }
+
     selectProductType = (type) => {
         this.setState({ filterData: null })
         if (type === 'hats')
-            this.setState({ cardData: Collection.hats.items });
+            this.setState({ cardData: Collection.hats.items, currentPage: 1 }, () => {
+                this.paginationHandler();
+            });
         else if (type === 'sneakers')
-            this.setState({ cardData: Collection.sneakers.items });
+            this.setState({ cardData: Collection.sneakers.items, currentPage: 1 }, () => {
+                this.paginationHandler();
+            });
         else if (type === 'jackets')
-            this.setState({ cardData: Collection.jackets.items });
+            this.setState({ cardData: Collection.jackets.items, currentPage: 1 }, () => {
+                this.paginationHandler();
+            });
         else if (type === 'mens')
-            this.setState({ cardData: Collection.mens.items })
+            this.setState({ cardData: Collection.mens.items, currentPage: 1 }, () => {
+                this.paginationHandler();
+            })
     }
+
     saveHandler = () => {
-        console.log('saveHandler', this.state.category, this.state.name, this.state.price,
-            this.state.uploadedImage, this.state.uploadedImage.name, this.state.toprating
-        );
+        // console.log('saveHandler', this.state.category, this.state.name, this.state.price,
+        //     this.state.uploadedImage, this.state.uploadedImage.name, this.state.toprating
+        // );
+        const reader = new FileReader();
+        reader.readAsDataURL(this.state.uploadedImage)
+
         if (this.state.edit) {
 
         }
@@ -284,11 +346,11 @@ class Shopping extends React.Component {
                                                             textAlign: 'initial'
                                                         }}>
                                                             <span>{val.name}</span><br />
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star checked"></span><br />
+                                                            <span className="fa fa-star checked"></span>
+                                                            <span className="fa fa-star checked"></span>
+                                                            <span className="fa fa-star checked"></span>
+                                                            <span className="fa fa-star checked"></span>
+                                                            <span className="fa fa-star checked"></span><br />
                                                             <span>${val.price}</span>
                                                         </div>
                                                     </Row>
@@ -304,7 +366,7 @@ class Shopping extends React.Component {
                     <Col>
                         <div className="parent">
                             {this.state.filterData ?
-                                this.state.filterData.map((val) => {
+                                this.state.currentData.map((val) => {
                                     return (
                                         <Card onClick={() => this.editHandler(val)}
                                             style={{ maxWidth: 250, maxHeight: 500, margin: '0.6%', cursor: 'pointer' }}>
@@ -318,7 +380,8 @@ class Shopping extends React.Component {
                                     );
                                 })
                                 :
-                                this.state.cardData.map((val) => {
+                                this.state.currentData &&
+                                this.state.currentData.map((val) => {
                                     return (
                                         <Card onClick={() => this.editHandler(val)}
                                             style={{ maxWidth: 250, maxHeight: 500, margin: '0.6%', cursor: 'pointer' }}>
@@ -339,14 +402,20 @@ class Shopping extends React.Component {
                 </Row>
                 <Row>
                     <div class="pagination">
-                        <span className="a">&laquo;</span>
+                        {/* <span className="a">&laquo;</span>
                         <span className="a active" >1</span>
                         <span className="a" >2</span>
                         <span className="a">3</span>
-                        <span className="a">&raquo;</span>
+                        <span className="a">&raquo;</span> */}
+
+                        <Pagination
+                            postsPerPage={this.state.postsPerPage}
+                            totalPosts={this.state.cardLength}
+                            paginate={this.paginate}
+                        />
+
                     </div>
                 </Row>
-
             </div >
         );
     }

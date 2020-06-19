@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Shopping from './components/shopping';
+import Shopping from './components/Home/shopping';
 
 function App() {
   return (

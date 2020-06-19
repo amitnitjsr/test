@@ -133,7 +133,8 @@
   }
 
   .pagination {
-    display: inline-block;
+    /* display: inline-block; */
+    display: flex;
     padding-left: 45%;
     list-style: none;
     border-radius: .25rem;
