@@ -10,6 +10,7 @@ const SHOP_DATA = {
         imageUrl: "https://i.ibb.co/ZYW3VTp/brown-brim.png",
         price: 35,
         toprating: false,
+        category: 'hats',
       },
       {
         id: 2,
@@ -17,6 +18,7 @@ const SHOP_DATA = {
         imageUrl: "https://i.ibb.co/ypkgK0X/blue-beanie.png",
         price: 40,
         toprating: false,
+        category: 'hats',
       },
       {
         id: 3,
@@ -24,6 +26,7 @@ const SHOP_DATA = {
         imageUrl: "https://i.ibb.co/QdJwgmp/brown-cowboy.png",
         price: 55,
         toprating: false,
+        category: 'hats',
       },
       {
         id: 4,
@@ -31,6 +34,7 @@ const SHOP_DATA = {
         imageUrl: "https://i.ibb.co/RjBLWxB/grey-brim.png",
         price: 45,
         toprating: false,
+        category: 'hats',
       },
       {
         id: 5,
@@ -38,6 +42,7 @@ const SHOP_DATA = {
         imageUrl: "https://i.ibb.co/YTjW3vF/green-beanie.png",
         price: 55,
         toprating: true,
+        category: 'hats',
       },
       {
         id: 6,
@@ -45,6 +50,7 @@ const SHOP_DATA = {
         imageUrl: "https://i.ibb.co/rKBDvJX/palm-tree-cap.png",
         price: 50,
         toprating: false,
+        category: 'hats',
       },
       {
         id: 7,
@@ -52,6 +58,7 @@ const SHOP_DATA = {
         imageUrl: "https://i.ibb.co/bLB646Z/red-beanie.png",
         price: 70,
         toprating: false,
+        category: 'hats',
       },
       {
         id: 8,
@@ -59,6 +66,7 @@ const SHOP_DATA = {
         imageUrl: "https://i.ibb.co/1f2nWMM/wolf-cap.png",
         price: 44,
         toprating: false,
+        category: 'hats',
       },
       {
         id: 9,
@@ -66,6 +74,7 @@ const SHOP_DATA = {
         imageUrl: "https://i.ibb.co/X2VJP2W/blue-snapback.png",
         price: 64,
         toprating: true,
+        category: 'hats',
       },
       {
         id: 10,
@@ -73,6 +82,7 @@ const SHOP_DATA = {
         imageUrl: "https://i.ibb.co/X2VJP2W/blue-snapback.png",
         price: 90,
         toprating: false,
+        category: 'hats',
       },
     ],
   },
@@ -87,6 +97,7 @@ const SHOP_DATA = {
         imageUrl: "https://i.ibb.co/0s3pdnc/adidas-nmd.png",
         price: 220,
         toprating: false,
+        category: 'sneakers',
       },
       {
         id: 11,
@@ -94,6 +105,7 @@ const SHOP_DATA = {
         imageUrl: "https://i.ibb.co/dJbG1cT/yeezy.png",
         price: 280,
         toprating: true,
+        category: 'sneakers',
       },
       {
         id: 12,
@@ -101,6 +113,7 @@ const SHOP_DATA = {
         imageUrl: "https://i.ibb.co/bPmVXyP/black-converse.png",
         price: 110,
         toprating: false,
+        category: 'sneakers',
       },
       {
         id: 13,
@@ -108,6 +121,7 @@ const SHOP_DATA = {
         imageUrl: "https://i.ibb.co/1RcFPk0/white-nike-high-tops.png",
         price: 160,
         toprating: false,
+        category: 'sneakers',
       },
       {
         id: 14,
@@ -115,6 +129,7 @@ const SHOP_DATA = {
         imageUrl: "https://i.ibb.co/QcvzydB/nikes-red.png",
         price: 160,
         toprating: false,
+        category: 'sneakers',
       },
       {
         id: 15,
@@ -122,6 +137,7 @@ const SHOP_DATA = {
         imageUrl: "https://i.ibb.co/fMTV342/nike-brown.png",
         price: 160,
         toprating: false,
+        category: 'sneakers',
       },
       {
         id: 16,
@@ -129,13 +145,15 @@ const SHOP_DATA = {
         imageUrl: "https://i.ibb.co/w4k6Ws9/nike-funky.png",
         price: 190,
         toprating: false,
+        category: 'sneakers',
       },
       {
         id: 17,
         name: "Timberlands",
         imageUrl: "https://i.ibb.co/Mhh6wBg/timberlands.png",
         price: 200,
-        toprating: true
+        toprating: true,
+        category: 'sneakers',
       },
     ],
   },
@@ -149,6 +167,7 @@ const SHOP_DATA = {
         name: "Black Jean Shearling",
         imageUrl: "https://i.ibb.co/XzcwL5s/black-shearling.png",
         toprating: false,
+        category: 'jackets',
       },
       {
         id: 19,
@@ -156,6 +175,7 @@ const SHOP_DATA = {
         imageUrl: "https://i.ibb.co/mJS6vz0/blue-jean-jacket.png",
         price: 90,
         toprating: false,
+        category: 'jackets',
       },
       {
         id: 20,
@@ -163,6 +183,7 @@ const SHOP_DATA = {
         imageUrl: "https://i.ibb.co/N71k1ML/grey-jean-jacket.png",
         price: 90,
         toprating: false,
+        category: 'jackets',
       },
       {
         id: 21,
@@ -170,6 +191,7 @@ const SHOP_DATA = {
         imageUrl: "https://i.ibb.co/s96FpdP/brown-shearling.png",
         price: 165,
         toprating: false,
+        category: 'jackets',
       },
       {
         id: 22,
@@ -177,6 +199,7 @@ const SHOP_DATA = {
         imageUrl: "https://i.ibb.co/M6hHc3F/brown-trench.png",
         price: 185,
         toprating: true,
+        category: 'jackets',
       },
     ],
   },
@@ -190,41 +213,48 @@ const SHOP_DATA = {
         name: "Camo Down Vest",
         imageUrl: "https://i.ibb.co/xJS0T3Y/camo-vest.png",
         price: 325,
-        toprating: true
+        toprating: true,
+        category: 'mens',
       },
       {
         id: 31,
         name: "Floral T-shirt",
         imageUrl: "https://i.ibb.co/qMQ75QZ/floral-shirt.png",
         price: 20,
-        toprating: false
+        toprating: false,
+        category: 'mens',
       },
       {
         id: 32,
         name: "Black & White Longsleeve",
         imageUrl: "https://i.ibb.co/55z32tw/long-sleeve.png",
         price: 25,
+        toprating: false,
+        category: 'mens',
       },
       {
         id: 33,
         name: "Pink T-shirt",
         imageUrl: "https://i.ibb.co/RvwnBL8/pink-shirt.png",
         price: 25,
-        toprating: true
+        toprating: true,
+        category: 'mens',
       },
       {
         id: 34,
         name: "Jean Long Sleeve",
         imageUrl: "https://i.ibb.co/VpW4x5t/roll-up-jean-shirt.png",
         price: 40,
-        toprating: false
+        toprating: false,
+        category: 'mens',
       },
       {
         id: 35,
         name: "Burgundy T-shirt",
         imageUrl: "https://i.ibb.co/mh3VM1f/polka-dot-shirt.png",
         price: 25,
-        toprating: false
+        toprating: false,
+        category: 'mens',
       },
     ],
   },

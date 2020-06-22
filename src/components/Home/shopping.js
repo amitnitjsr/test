@@ -194,6 +194,7 @@ class Shopping extends React.Component {
                         if (this.state.price) data.price = this.state.price;
                         if (this.state.uploadedImage) data.imageUrl = this.state.uploadedImage;
                         data.toprating = this.state.toprating;
+                        data.category = this.state.category;
                     }
                     return data;
                 })
@@ -206,6 +207,7 @@ class Shopping extends React.Component {
                         if (this.state.price) data.price = this.state.price;
                         if (this.state.uploadedImage) data.imageUrl = this.state.uploadedImage;
                         data.toprating = this.state.toprating;
+                        data.category = this.state.category;
                     }
                     return data;
                 })
@@ -218,6 +220,7 @@ class Shopping extends React.Component {
                         if (this.state.price) data.price = this.state.price;
                         if (this.state.uploadedImage) data.imageUrl = this.state.uploadedImage;
                         data.toprating = this.state.toprating;
+                        data.category = this.state.category;
                     }
                     return data;
                 })
@@ -230,6 +233,7 @@ class Shopping extends React.Component {
                         if (this.state.price) data.price = this.state.price;
                         if (this.state.uploadedImage) data.imageUrl = this.state.uploadedImage;
                         data.toprating = this.state.toprating;
+                        data.category = this.state.category;
                     }
                     return data;
                 })
@@ -246,6 +250,7 @@ class Shopping extends React.Component {
                     price: this.state.price,
                     toprating: this.state.toprating,
                     imageUrl: this.state.uploadedImage,
+                    category: this.state.category
                 }
                 Collection.hats.items.push(data);
                 this.topProductFilter(Collection.hats.items);
@@ -257,6 +262,7 @@ class Shopping extends React.Component {
                     price: this.state.price,
                     toprating: this.state.toprating,
                     imageUrl: this.state.uploadedImage,
+                    category: this.state.category
                 }
                 Collection.sneakers.items.push(data);
                 this.topProductFilter(Collection.sneakers.items);
@@ -268,6 +274,7 @@ class Shopping extends React.Component {
                     price: this.state.price,
                     toprating: this.state.toprating,
                     imageUrl: this.state.uploadedImage,
+                    category: this.state.category
                 }
                 Collection.jackets.items.push(data);
                 this.topProductFilter(Collection.jackets.items);
@@ -279,6 +286,7 @@ class Shopping extends React.Component {
                     price: this.state.price,
                     toprating: this.state.toprating,
                     imageUrl: this.state.uploadedImage,
+                    category: this.state.category
                 }
                 Collection.mens.items.push(data);
                 this.topProductFilter(Collection.mens.items);
@@ -294,9 +302,10 @@ class Shopping extends React.Component {
     // Click on Card, editHandler function calling
     editHandler = (value) => {
         this.popupModal();
+
         this.setState({
             id: value.id, name: value.name, uploadedImage: value.imageUrl,
-            price: value.price, toprating: value.toprating, edit: true
+            price: value.price, toprating: value.toprating, category: value.category, edit: true
         })
     }
 
