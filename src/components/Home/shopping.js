@@ -454,7 +454,7 @@ class Shopping extends React.Component {
                                                             position: 'relative',
                                                             textAlign: 'initial'
                                                         }}>
-                                                            <span>{val.name}</span><br />
+                                                            <span className="fontweight">{val.name}</span><br />
                                                             <span className="fa fa-star checked"></span>
                                                             <span className="fa fa-star checked"></span>
                                                             <span className="fa fa-star checked"></span>
@@ -483,7 +483,7 @@ class Shopping extends React.Component {
                                             <CardImg top style={{ height: '75%' }}
                                                 src={val.imageUrl} alt="Card image cap" />
                                             <CardBody className="text-center" >
-                                                <span>{val.name}</span><br />
+                                                <span className="fontweight">{val.name}</span><br />
                                                 <span>${val.price}</span>
                                             </CardBody>
                                         </Card>
@@ -498,7 +498,7 @@ class Shopping extends React.Component {
                                             <CardImg top style={{ height: '75%' }}
                                                 src={val.imageUrl} alt="Card image cap" />
                                             <CardBody className="text-center">
-                                                <span>{val.name}</span><br />
+                                                <span className="fontweight">{val.name}</span><br />
                                                 <span>${val.price}</span>
                                             </CardBody>
                                         </Card>

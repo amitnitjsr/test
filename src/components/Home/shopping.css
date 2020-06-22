@@ -59,6 +59,7 @@
 
   .pointer{
     cursor: pointer;
+    font-weight: 600;
   }
   .active, .pointer:hover{
     cursor: pointer;
@@ -243,4 +244,7 @@
     cursor: pointer;
     margin-top: 10px !important; 
 }
-  
+
+.fontweight{
+  font-weight: 600;
+}
