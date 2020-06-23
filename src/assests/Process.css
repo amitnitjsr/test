@@ -1,0 +1,73 @@
+.li{
+    width: 2em;
+    height: 2em;
+    text-align: center;
+    line-height: 2em;
+    border-radius: 1em;
+    background: rgb(215, 219, 223);
+    margin: 0 1em;
+    display: inline-block;
+    color: rgb(96, 97, 99);
+    position: relative;
+  }
+  
+  .li::before{
+    content: '';
+    position: absolute;
+    top: .9em;
+    left: -4em;
+    width: 4em;
+    height: .2em;
+    background: rgb(215, 219, 223);
+    z-index: -1;
+  }
+  
+  
+  .li:first-child::before {
+    display: none;
+  }
+  
+  .active {
+    background: rgb(255, 30, 68);
+    color: white;
+  }
+  
+  .active ~ li {
+    background: rgb(215, 219, 223);
+  }
+  
+  .active ~ li::before {
+    background: rgb(215, 219, 223);
+  }
+  ul.demo {
+    /* list-style-type: none; */
+
+    margin: 0;
+    padding: 0;
+  }
+
+  .btn-group button {
+    background-color: rgb(6, 20, 139); /* Green background */
+    border: 1px solid transparent; /* Green border */
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    float: left; /* Float the buttons side by side */
+    border-radius: 10px;
+  }
+  
+  /* Clear floats (clearfix hack) */
+  .btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .btn-group button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+  }
+  
+  /* Add a background color on hover */
+  .btn-group button:hover {
+    background-color: grey;
+  }

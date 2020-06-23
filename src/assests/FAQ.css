@@ -1,0 +1,27 @@
+.par{
+    text-align: center;
+    font-size: 20px;
+    color: red;
+    font-weight: 600;
+}
+
+input[type=text] {
+    width: 30%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('https://img.icons8.com/ios/25/000000/search--v1.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+  }
+
+.search-btn{
+    width: 135px;
+    height: 49px;
+    background-color: red;
+    border: none;
+    color: white;
+}

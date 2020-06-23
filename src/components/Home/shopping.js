@@ -20,7 +20,7 @@ class Shopping extends React.Component {
         toprating: false,
         uploadedImage: null,
         imageName: null,
-        price: 0,
+        price: null,
         name: '',
         id: null,
         edit: false,
@@ -35,7 +35,9 @@ class Shopping extends React.Component {
         active1: 'active',
         active2: '',
         active3: '',
-        active4: ''
+        active4: '',
+        validateTitle: false,
+        validatePrice: false,
     }
 
     componentDidMount() {
@@ -67,7 +69,25 @@ class Shopping extends React.Component {
     // Text input Handler
     inputHandler = (name, value) => {
         this.setState(
-            { [name]: value }
+            { [name]: value }, () => {
+                // validation
+                if (name === 'name') {
+                    if (this.state.name.trim().length === 0) {
+                        this.setState({ validateTitle: true })
+                    }
+                    else {
+                        this.setState({ validateTitle: false })
+                    }
+                }
+                else if (name === 'price') {
+                    if (this.state.price === null) {
+                        this.setState({ validatePrice: true })
+                    }
+                    else {
+                        this.setState({ validatePrice: false })
+                    }
+                }
+            }
         );
     }
 
@@ -364,6 +384,7 @@ class Shopping extends React.Component {
                             <span className="bottom-padding">
                                 <input className="input-width" placeholder={'Enter product title'}
                                     value={this.state.name}
+                                    error={true}
                                     onChange={(e) => this.inputHandler('name', e.target.value)} />
                             </span>
                             <span className="font-style">
@@ -371,6 +392,7 @@ class Shopping extends React.Component {
                             </span>
                             <span className="bottom-padding">
                                 <input type="number" min="1" max="599" className="input-width"
+
                                     value={this.state.price}
                                     onChange={(e) => this.inputHandler('price', e.target.value)}
                                     placeholder={'Enter price'} />
