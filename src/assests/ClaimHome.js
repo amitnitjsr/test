@@ -13,6 +13,11 @@ class ClaimHome extends Component {
         active1: 'active_button',
         active2: '',
         dropdownOpen: false,
+        product: false,
+        customer: false,
+        information: false,
+        about: false,
+
     }
     clickHandler = (value) => {
         if (value === 'process') {
@@ -26,11 +31,20 @@ class ClaimHome extends Component {
             )
         }
     }
-    toggle = () => {
+    toggleProduct = () => {
         console.log('too')
         this.setState(
             { dropdownOpen: !this.state.dropdownOpen }
         )
+    }
+    toggleCustomer = () => {
+        this.setState({ customer: !this.state.customer })
+    }
+    toggleInformation = () => {
+        this.setState({ information: !this.state.information })
+    }
+    toggleAbout = () => {
+        this.setState({ about: !this.state.about })
     }
     render() {
         return (
@@ -44,7 +58,7 @@ class ClaimHome extends Component {
                         <input type="checkbox" id="chkToggle"></input>
                         <ul class="main-nav" id="js-menu">
                             <li>
-                                <Dropdown isOpen={this.state.dropdownOpen} toggle={() => this.toggle()}>
+                                <Dropdown isOpen={this.state.dropdownOpen} toggle={() => this.toggleProduct()}>
                                     <DropdownToggle className="drop" caret >
                                         Products
                                      </DropdownToggle>
@@ -58,7 +72,7 @@ class ClaimHome extends Component {
                                 </Dropdown>
                             </li>
                             <li>
-                                <Dropdown isOpen={this.state.dropdownOpen} toggle={() => this.toggle()}>
+                                <Dropdown isOpen={this.state.customer} toggle={() => this.toggleCustomer()}>
                                     <DropdownToggle className="drop" caret >
                                         Customer Services
                                      </DropdownToggle>
@@ -72,7 +86,7 @@ class ClaimHome extends Component {
                                 </Dropdown>
                             </li>
                             <li>
-                                <Dropdown isOpen={this.state.dropdownOpen} toggle={() => this.toggle()}>
+                                <Dropdown isOpen={this.state.information} toggle={() => this.toggleInformation()}>
                                     <DropdownToggle className="drop" caret >
                                         Information Center
                                      </DropdownToggle>
@@ -86,7 +100,7 @@ class ClaimHome extends Component {
                                 </Dropdown>
                             </li>
                             <li>
-                                <Dropdown isOpen={this.state.dropdownOpen} toggle={() => this.toggle()}>
+                                <Dropdown isOpen={this.state.about} toggle={() => this.toggleAbout()}>
                                     <DropdownToggle className="drop" caret >
                                         About Us
                                      </DropdownToggle>
@@ -99,7 +113,7 @@ class ClaimHome extends Component {
                                     </DropdownMenu>
                                 </Dropdown>
                             </li>
-                            <li>
+                            <li style={{ margin: '5px', fontSize: '1rem', fontWeight: '400', cursor: 'pointer' }}>
                                 <span>Customer Testimonials</span>
                             </li>
                         </ul>
