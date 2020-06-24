@@ -7,9 +7,11 @@ body {
   .header {
     padding: 0px;
     /* text-align: center; */
-    background: #1abc9c;
-    color: white;
-    font-size: 30px;
+    background: #e2e8e7;
+    color: #737171;
+    font-size: 15px;
+    /* margin: -17px; */
+    margin-bottom: -17px;
   }
 
   .header1 {
@@ -23,7 +25,11 @@ body {
   /* Page Content */
   .content {padding:20px;}
 
-  
+  .container {
+    position: relative;
+    /* text-align: center;
+    color: white; */
+  }
   .centered {
     position: absolute;
     top: 46%;
@@ -159,3 +165,31 @@ body {
       border: none;
        color: gray;
   }
+  .drop:hover{
+    background: transparent;
+    color: gray;
+  }
+.btn-secondary:hover{
+    background: transparent;
+    color: gray;
+}
+a, a:focus, a:hover {
+    text-decoration: none !important;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+
+.vl {
+    border-left: 1px solid grey;
+    height: 7px;
+  }
+  .btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+    color: gray !important;
+    background-color: transparent !important;
+    border-color: none !important;
+}
+
+/* collapse */

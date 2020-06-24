@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Callback from '../images/callback1.png';
-import HealthImg from '../images/health.PNG';
+import Callback from '../../images/callback1.png';
+import HealthImg from '../../images/health.PNG';
 import './Process.css';
 
 export default class Process extends Component {

@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 // import Shopping from './components/Home/shopping';
-import ClaimHome from './assests/ClaimHome';
+import ClaimHome from './assests/claimHome/ClaimHome';
 
 function App() {
   return (
