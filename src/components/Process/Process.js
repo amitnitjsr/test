@@ -9,8 +9,8 @@ export default class Process extends Component {
             <div className="process-content" >
                 <p>
                     <div className="btn-group">
-                        <button>Cashless</button>
-                        <button>Reimbursement</button>
+                        <button >Cashless</button>
+                        <button >Reimbursement</button>
                     </div>
                 </p>
                 <p>
