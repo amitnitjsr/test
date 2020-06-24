@@ -8,7 +8,7 @@ export default class Process extends Component {
         return (
             <div className="process-content" >
                 <p>
-                    <div class="btn-group">
+                    <div className="btn-group">
                         <button>Cashless</button>
                         <button>Reimbursement</button>
                     </div>
@@ -17,7 +17,7 @@ export default class Process extends Component {
                     <img className="img" src={HealthImg} alt="not found" />
                 </p>
                 <p>
-                    <span>
+                    <span style={{ fontSize: '20px', color: '#040480', fontWeight: '800' }}>
                         Process Steps
                     </span><br /><br />
                     <span>
@@ -33,23 +33,23 @@ export default class Process extends Component {
                     </span>
                 </p>
 
-                <p>
+                <p style={{ color: 'lightgrey', fontWeight: 'bold' }}>
                     Step 1
                 </p>
-                <p>
+                <p style={{ fontWeight: '600', fontSize: '20px', color: '#040480' }}>
                     Locate a network hospital
                      </p>
-                <ul className="demo">
-                    <li >Who performs it? Plicy Holder</li>
-                    <li >Locate a network hospital <a href="#">here</a></li>
+                <ul className="demo" >
+                    <li style={{ listStyleType: 'disc' }} >Who performs it? Policy Holder</li>
+                    <li style={{ listStyleType: 'disc' }} >Locate a network hospital <a href="http://localhost:3000/">here</a></li>
                 </ul>
                 <hr />
                 <p>
                     <span className="img1"> <img src={Callback} alt="not found" /> </span>
                     We will keep you update on the status of your claim via SMS and email. You can also track
-                    ongoing claims <a href="#">here</a>
+                    ongoing claims <a href="http://localhost:3000"  >here</a>
                 </p>
-            </div>
+            </div >
         )
     }
 }

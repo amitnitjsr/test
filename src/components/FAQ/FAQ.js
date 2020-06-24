@@ -39,51 +39,51 @@ export default class FAQ extends Component {
                 {/* tableRow Data */}
                 <p>
                     <p>
-                        <button class="collapsible" onClick={() => this.toggle()}>
+                        <button className="collapsible" onClick={() => this.toggle()}>
                             How can I add an alternate number to recieve SMS notification?.
                     </button>
-                        <div class="content1">
+                        <div className="content1">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         </div>
                     </p>
 
                     <p>
-                        <button class="collapsible" onClick={() => this.toggle()}>
+                        <button className="collapsible" onClick={() => this.toggle()}>
                             How can I add an alternate number to recieve SMS notification?.
                     </button>
-                        <div class="content1">
+                        <div className="content1">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         </div>
                     </p>
                     <p>
-                        <button class="collapsible" onClick={() => this.toggle()}>
+                        <button className="collapsible" onClick={() => this.toggle()}>
                             How can I add an alternate number to recieve SMS notification?.
                     </button>
-                        <div class="content1">
+                        <div className="content1">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         </div>
                     </p>
                     <p>
-                        <button class="collapsible" onClick={() => this.toggle()}>
+                        <button className="collapsible" onClick={() => this.toggle()}>
                             How can I add an alternate number to recieve SMS notification?.
                     </button>
-                        <div class="content1">
+                        <div className="content1">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         </div>
                     </p>
                     <p>
-                        <button class="collapsible" onClick={() => this.toggle()}>
+                        <button className="collapsible" onClick={() => this.toggle()}>
                             How can I add an alternate number to recieve SMS notification?.
                     </button>
-                        <div class="content1">
+                        <div className="content1">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         </div>
                     </p>
                     <p>
-                        <button class="collapsible" onClick={() => this.toggle()}>
+                        <button className="collapsible" onClick={() => this.toggle()}>
                             How can I add an alternate number to recieve SMS notification?.
                     </button>
-                        <div class="content1">
+                        <div className="content1">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         </div>
                     </p>

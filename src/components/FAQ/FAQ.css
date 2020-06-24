@@ -88,8 +88,8 @@ input[type=text] {
       width: 100%;
     }
     .search-btn{
-      display: flex;
-      justify-content: start;
+      display: flex-start;
+      /* justify-content: start; */
       width: 100%;
       text-align: center;
       padding-left: 45%;

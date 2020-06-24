@@ -22,8 +22,8 @@ class ClaimHome extends Component {
         customer: false,
         information: false,
         about: false,
-
     }
+
     clickHandler = (value) => {
         if (value === 'process') {
             this.setState(
@@ -36,27 +36,31 @@ class ClaimHome extends Component {
             )
         }
     }
+
     toggleProduct = () => {
-        console.log('too')
         this.setState(
             { dropdownOpen: !this.state.dropdownOpen }
         )
     }
+
     toggleCustomer = () => {
         this.setState({ customer: !this.state.customer })
     }
+
     toggleInformation = () => {
         this.setState({ information: !this.state.information })
     }
+
     toggleAbout = () => {
         this.setState({ about: !this.state.about })
     }
+
     render() {
         return (
             <div>
 
                 {/* Top header */}
-                <div class="header">
+                <div className="header">
                     <p className="top-header" >
                         <span className="call-icon">
                             <img src={PhoneImg} alt="not found" />
@@ -65,7 +69,7 @@ class ClaimHome extends Component {
                             {/* Number span  */}
                         <span className="numberspan">
                             <span>In India
-                                <a class="cms-iconlink" href="tel:18002085544" title="1800-208-5544">
+                                <a className="cms-iconlink" href="tel:18002085544" title="1800-208-5544">
                                     <strong>1800-208-5544</strong></a>
                             </span>&nbsp;
                             <span class="vl">
@@ -74,34 +78,33 @@ class ClaimHome extends Component {
                             <span>
                                 Outside India<a href="tel:4430985300" title="+91-44-3098 5300"> <strong>+91-44-6166 3400</strong></a>
                             </span>
-
                         </span>
 
+                        {/* Social Icon in top header */}
                         <span className="social-icon">
                             <span >
-                                <span ><a href="https://www.facebook.com/CholaMSInsurance" rel="nofollow" title="Facebook" target="_blank">
+                                <span ><a href="https://www.facebook.com/CholaMSInsurance" rel="noopener noreferrer" title="Facebook" target="_blank">
                                     <img src={facebookImg} alt="not found" />
                                 </a></span>&nbsp;&nbsp;
-                                    <span ><a href="https://twitter.com/cholaMS" rel="nofollow" title="Twitter" target="_blank">
+                                    <span ><a href="https://twitter.com/cholaMS" rel="noopener noreferrer" title="Twitter" target="_blank">
                                     <img src={twitterImg} alt="not found" /></a></span>&nbsp;&nbsp;
-                                    <span ><a href="https://in.linkedin.com/company/cholamandalam-ms-general-insurance-co--ltd-" rel="nofollow" title="Linkedin" target="_blank">
+                                    <span ><a href="https://in.linkedin.com/company/cholamandalam-ms-general-insurance-co--ltd-" rel="noopener noreferrer" title="Linkedin" target="_blank">
                                     <img src={linkedImg} alt="not found" /></a></span>&nbsp;&nbsp;
-                                    <span ><a href="https://instagram.com/chola_ms?igshid=ttrjfgb28hjt" rel="nofollow" title="Instagram" target="_blank">
+                                    <span ><a href="https://instagram.com/chola_ms?igshid=ttrjfgb28hjt" rel="noopener noreferrer" title="Instagram" target="_blank">
                                     <img src={instagramImg} alt="not found" /></a></span>&nbsp;&nbsp;&nbsp;
                                 </span>
-
                         </span>
                     </p>
                 </div>
 
                 {/* menu bar header */}
-                <nav class="navbar">
-                    <label class="navbar-toggle" id="js-navbar-toggle" for="chkToggle">
-                        <i class="fa fa-bars"></i>
+                <nav className="navbar">
+                    <label className="navbar-toggle" id="js-navbar-toggle" for="chkToggle">
+                        <i className="fa fa-bars"></i>
                     </label>
                     <label>Chola MS</label>
                     <input type="checkbox" id="chkToggle"></input>
-                    <ul class="main-nav" id="js-menu">
+                    <ul className="main-nav" id="js-menu">
                         <li>
                             <Dropdown isOpen={this.state.dropdownOpen} toggle={() => this.toggleProduct()}>
                                 <DropdownToggle className="drop" caret >
@@ -171,17 +174,13 @@ class ClaimHome extends Component {
                     <p>
                         <div >
                             <img className="img-home" src={Image} alt="Not found imagefile" />
-                            <div class="centered">Claims Process</div>
+                            <div className="centered">Claims Process</div>
                         </div>
-                        {/* <div class="container1">
-                            <img src={Image} alt="Not found imagefile" width="100%" />
-                            <div class="centered">Claims Process</div>
-                        </div> */}
                     </p>
                 </div>
 
                 {/* down header bar, process and FAQ */}
-                <div class="header2">
+                <div className="header2">
                     <span className="home">
                         Home
                     </span>&nbsp;
@@ -195,7 +194,7 @@ class ClaimHome extends Component {
                     </p>
                 </div>
 
-                <div class="content">
+                <div className="content">
                     {this.state.process ? <Process /> : <FAQ />
                     }
                 </div>

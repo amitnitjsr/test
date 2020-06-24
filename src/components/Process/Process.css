@@ -39,12 +39,15 @@
   .active ~ li::before {
     background: rgb(215, 219, 223);
   }
-  ul.demo {
-    /* list-style-type: none; */
 
-    margin: 0;
-    padding: 0;
-  }
+  
+
+  /* ul.demo {
+    
+    margin-left: 42%;
+    margin-right: 41%;
+    
+  } */
 
   .btn-group button {
     background-color: rgb(6, 20, 139); /* Green background */
@@ -92,6 +95,10 @@
         justify-content: center;
         display: flex;
       }
+      .demo{
+        margin-left: 13px;
+        margin-right: 0;
+      }
   }
 
   @media screen and (min-width: 768px) { 
@@ -99,5 +106,8 @@
      
       text-align: center;
       }
-     
+      .demo{
+        margin-left: 42%;
+        margin-right: 41%;
+      }
   }

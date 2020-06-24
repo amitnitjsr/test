@@ -48,6 +48,7 @@ body {
     font-size: 40px;
     font-weight: 600;
     font-style: oblique; */
+    color: #040480;
     position: absolute;
     top: 55%;
     left: 12%;
@@ -251,3 +252,4 @@ ul li {
 }
 
 /* collapse */
+
