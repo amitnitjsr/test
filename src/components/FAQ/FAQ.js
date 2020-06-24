@@ -22,10 +22,20 @@ export default class FAQ extends Component {
     }
     render() {
         return (
-            <div style={{ textAlign: 'center' }}>
+            <div className="faQ-content">
                 <p className="par">We're here to help!</p>
-                <p><input type='text' placeholder='search...' />&nbsp;
-                <button className="search-btn">SEARCH</button></p>
+
+                {/* search button */}
+                <p>
+                    <span>
+                        <input type='text' placeholder='search...' />
+                    </span>
+                    &nbsp;
+                    <span>
+                        <button className="search-btn">SEARCH</button>
+                    </span>
+                </p>
+
                 {/* tableRow Data */}
                 <p>
                     <p>

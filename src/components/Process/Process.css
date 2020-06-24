@@ -71,3 +71,33 @@
   .btn-group button:hover {
     background-color: grey;
   }
+
+  @media screen and (max-width: 767px) { 
+    .process-content{
+      margin: auto;
+      text-align: start;
+      }
+      .li{
+        margin: 15px;
+      }
+      .img{
+       width: 100%;
+      height: auto;
+      }
+      .img1{
+        display: flex;
+        justify-content: center;
+      }
+      .btn-group{
+        justify-content: center;
+        display: flex;
+      }
+  }
+
+  @media screen and (min-width: 768px) { 
+    .process-content{
+     
+      text-align: center;
+      }
+     
+  }

@@ -6,7 +6,7 @@ import './Process.css';
 export default class Process extends Component {
     render() {
         return (
-            <div style={{ textAlign: 'center' }}>
+            <div className="process-content" >
                 <p>
                     <div class="btn-group">
                         <button>Cashless</button>
@@ -14,22 +14,25 @@ export default class Process extends Component {
                     </div>
                 </p>
                 <p>
-                    <img src={HealthImg} alt="not found" />
+                    <img className="img" src={HealthImg} alt="not found" />
                 </p>
                 <p>
-                    Process Steps
+                    <span>
+                        Process Steps
+                    </span><br /><br />
+                    <span>
+                        <ul>
+                            <li className="li active">1</li>
+                            <li className="li">2</li>
+                            <li className="li">3</li>
+                            <li className="li">4</li>
+                            <li className="li">5</li>
+                            <li className="li">6</li>
+                            <li className="li">7</li>
+                        </ul>
+                    </span>
                 </p>
-                <p>
-                    <ul >
-                        <li className="li active">1</li>
-                        <li className="li">2</li>
-                        <li className="li">3</li>
-                        <li className="li">4</li>
-                        <li className="li">5</li>
-                        <li className="li">6</li>
-                        <li className="li">7</li>
-                    </ul>
-                </p>
+
                 <p>
                     Step 1
                 </p>
@@ -42,7 +45,7 @@ export default class Process extends Component {
                 </ul>
                 <hr />
                 <p>
-                    <span><img src={Callback} alt="not found" /></span>
+                    <span className="img1"> <img src={Callback} alt="not found" /> </span>
                     We will keep you update on the status of your claim via SMS and email. You can also track
                     ongoing claims <a href="#">here</a>
                 </p>
