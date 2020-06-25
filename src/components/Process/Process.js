@@ -4,13 +4,16 @@ import HealthImg from '../../images/health.PNG';
 import './Process.css';
 
 export default class Process extends Component {
+
     render() {
         return (
             <div className="process-content" >
                 <p>
                     <div className="btn-group">
-                        <button >Cashless</button>
-                        <button >Reimbursement</button>
+                        <div className="d">
+                            <button className="b1">Cashless</button>
+                            <button className="b2" style={{ color: 'grey' }} >Reimbursement</button>
+                        </div>
                     </div>
                 </p>
                 <p>
