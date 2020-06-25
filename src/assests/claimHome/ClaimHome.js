@@ -109,7 +109,7 @@ class ClaimHome extends Component {
                             <Dropdown isOpen={this.state.dropdownOpen} toggle={() => this.toggleProduct()}>
                                 <DropdownToggle className="drop" caret >
                                     Products
-                                     </DropdownToggle>
+                                </DropdownToggle>
                                 <DropdownMenu>
                                     <DropdownItem>Some Action</DropdownItem>
                                     <DropdownItem divider />
@@ -118,6 +118,21 @@ class ClaimHome extends Component {
                                     <DropdownItem>Quo Action</DropdownItem>
                                 </DropdownMenu>
                             </Dropdown>
+                            {/* <label class="dropdown">
+                                <span class="dd-button">
+                                    Dropdown
+                                </span>
+                                <input type="checkbox" class="dd-input" id="test" />
+                                <ul class="dd-menu">
+                                    <li>Action</li>
+                                    <li>Another action</li>
+                                    <li>Something else here</li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="http://rane.io">Link to Rane.io</a>
+                                    </li>
+                                </ul>
+                            </label> */}
                         </li>
                         <li>
                             <Dropdown isOpen={this.state.customer} toggle={() => this.toggleCustomer()}>
