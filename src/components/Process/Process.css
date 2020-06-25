@@ -41,13 +41,11 @@
   }
 
   .btn-group button {
-    /* background-color: rgb(6, 20, 139);  */
-    border: 1px solid transparent; /* Green border */
-    color: white; /* White text */
-    padding: 10px 24px; /* Some padding */
-    cursor: pointer; /* Pointer/hand icon */
-    float: left; /* Float the buttons side by side */
-    /* border-radius: 10px; */
+    border: 1px solid transparent;
+    color: white;
+    padding: 10px 24px; 
+    cursor: pointer; 
+    float: left; 
     border: none;
   }
   
@@ -67,13 +65,7 @@
     background-color: transparent;
     border: transparent;
   }
-  .btn-group:hover{
-    /* background-color: yellow; */
-  }
-  /* .btn-secondary:hover {
-    
-    border-color: white;
-} */
+ 
   @media screen and (max-width: 767px) { 
     .process-content{
       margin: auto;
@@ -102,10 +94,11 @@
   }
 
   @media screen and (min-width: 768px) { 
+    
     .process-content{
-     
       text-align: center;
       }
+
       .demo{
         margin-left: 42%;
         margin-right: 41%;
@@ -118,20 +111,21 @@
     position:relative;
     cursor: pointer;
     }
+
     .b1 {
-    float:left;
-    height:50px;
-    width:200px;
+      float:left;
+      height:50px;
+      width:200px;
       border-radius: 20px;
       border: none;
       background-color:#040480;
       
     }
+
     .b2 {
-    position:absolute;
-    left:160px;
-    height:50px;
-    /* width:100px; */
+      position:absolute;
+      left:160px;
+      height:50px;
       border-radius: 20px;
       margin-right: 90%;
       width: 200px;

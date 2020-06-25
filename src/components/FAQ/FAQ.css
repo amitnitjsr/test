@@ -30,7 +30,7 @@ input[type=text] {
 
 .collapsible {
     background-color: #eee;
-    color: gray;
+    color: black;
     cursor: pointer;
     padding: 18px;
     width: 80%;
@@ -45,26 +45,25 @@ input[type=text] {
     background-color: #f1f1f1;
   }
   
-  .collapsible:after {
+  /* .collapsible:after {
     content: '\002B';
     color: gray;
     font-weight: bold;
     float: left;
     margin-left: 5px;
     margin-right: 5px;
-
- height: 25px;
+   height: 25px;
   width: 25px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
   text-align: center;
   padding: 3px;
-  }
+  } */
   
-  .active1:after {
+  /* .active1:after {
     content: "\2212";
-  }
+  } */
   
   .content1 {
     padding: 0 18px;
@@ -75,44 +74,47 @@ input[type=text] {
     width: 80%;
     margin-left: 10%;
   }
-
+.row-data{
+  width: 78%;
+  text-align: initial;
+  /* margin-right: 69%; */
+  margin-left: 12%;
+  color: gray;
+}
   /* media query */
   @media screen and (max-width: 767px) { 
+    
     .faQ-content{
       text-align: start;
     }
+
     .collapsible{
       width: auto;
       text-align: -webkit-center;
     }
+
     .content1{
       width: auto;
       margin-left: 0px;
     }
+
     input[type=text] {
       width: 100%;
     }
-    /* .search-btn{
-      display: flex-start;
-      justify-content: start;
-      width: 100%;
-      text-align: center;
-      padding-left: 45%;
-      padding-top: 3%;
-      
-    } */
+    
     .search-btn {
       display: flex-start;
-      /* justify-content: start; */
       width: 100%;
-      /* text-align: center; */
-      /* padding-left: 45%; */
-      /* padding-top: 3%; */
   }
   }
 
   @media screen and (min-width: 768px) { 
+
     .faQ-content{
       text-align: center;
     }
+
   }
+
+
+  
