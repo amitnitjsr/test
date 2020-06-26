@@ -159,7 +159,18 @@ body {
    width: 100%;
     color: grey;
   }
-  
+
+  @media screen and (max-width: 1140px) {
+    .centered{
+      /* display: contents;
+      justify-content: center; */
+      /* display: flex; */
+      text-align: center;
+    position: relative;
+    margin-left: 38%;
+    }
+  }
+
   @media screen and (max-width: 767px) {
 
     .numberspan{
@@ -171,7 +182,7 @@ body {
       }
 
       .centered{
-        display: contents;
+        /* display: contents; */
         justify-content: center;
         /* display: flex; */
       }
@@ -184,6 +195,9 @@ body {
 
   }
 
+/* .img-home{
+  width: 100%;
+} */
   @media screen and (min-width: 768px){
     .top-header{
       text-align: end;
