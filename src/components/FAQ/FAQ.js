@@ -35,10 +35,10 @@ export default class FAQ extends Component {
     render() {
         return (
             <div className="faQ-content">
-                <p className="par">We're here to help!</p>
+                <div className="par">We're here to help!</div><br/>
 
                 {/* search button */}
-                <p>
+                <div>
                     <span>
                         <input type='text' placeholder='Search for a keyword or phrase' />
                     </span>
@@ -46,36 +46,29 @@ export default class FAQ extends Component {
                     <span>
                         <button className="search-btn">SEARCH</button>
                     </span>
-                </p>
+                </div><br />
 
                 {/* tableRow Data */}
 
-                <p>
+                <div style={ { margin: '5px' }}>
                     <button className="collapsible" onClick={() => this.toggle1(1)}>
                         {this.state.block1 ?
                             <i className="zmdi zmdi-minus-circle-outline zmdi-hc-lg" style={{ margin: '5px' }}></i> :
                             <i className="zmdi zmdi-plus-circle-o zmdi-hc-lg" style={{ margin: '5px' }}></i>}
-
                             How can I add an alternate number to recieve SMS notification?.
-
-
                         <Collapse isOpen={this.state.block1}>
                             <br />
                             <div style={{ marginLeft: '25px', color: 'gray' }}>
-                                {/* <Card>
-                                <CardBody> */}
-                                    Anim pariatur cliche reprehenderit,
-                                    enim eiusmod high life accusamus terry richardson ad squid. Nihil
-                                    anim keffiyeh helvetica, craft beer labore wes anderson cred
-                                    nesciunt sapiente ea proident.
-                            {/* </CardBody>
-                            </Card> */}
+                                Anim pariatur cliche reprehenderit,
+                                enim eiusmod high life accusamus terry richardson ad squid. Nihil
+                                anim keffiyeh helvetica, craft beer labore wes anderson cred
+                                nesciunt sapiente ea proident.
                             </div>
                         </Collapse>
                     </button>
+                </div>
 
-                </p>
-                <p>
+                <div style={ { margin: '5px' }}>
                     <button className="collapsible" onClick={() => this.toggle1(2)}>
                         {this.state.block2 ?
                             <i className="zmdi zmdi-minus-circle-outline zmdi-hc-lg" style={{ margin: '5px' }}></i> :
@@ -84,20 +77,15 @@ export default class FAQ extends Component {
                         <Collapse isOpen={this.state.block2}>
                             <br />
                             <div style={{ marginLeft: '25px', color: 'gray' }} >
-                                {/* <Card>
-                                <CardBody> */}
-                                    Anim pariatur cliche reprehenderit,
-                                    enim eiusmod high life accusamus terry richardson ad squid. Nihil
-                                    anim keffiyeh helvetica, craft beer labore wes anderson cred
-                                    nesciunt sapiente ea proident.
-                            {/* </CardBody>
-                            </Card> */}
+                                Anim pariatur cliche reprehenderit,
+                                enim eiusmod high life accusamus terry richardson ad squid. Nihil
+                                anim keffiyeh helvetica, craft beer labore wes anderson cred
+                                nesciunt sapiente ea proident.
                             </div>
                         </Collapse>
                     </button>
-
-                </p>
-                <p>
+                </div>
+                <div style={ { margin: '5px' }}>
                     <button className="collapsible" onClick={() => this.toggle1(3)}>
                         {this.state.block3 ?
                             <i className="zmdi zmdi-minus-circle-outline zmdi-hc-lg" style={{ margin: '5px' }}></i> :
@@ -106,20 +94,15 @@ export default class FAQ extends Component {
                         <Collapse isOpen={this.state.block3}>
                             <br />
                             <div style={{ marginLeft: '25px', color: 'gray' }} >
-                                {/* <Card>
-                                <CardBody> */}
                                     Anim pariatur cliche reprehenderit,
                                     enim eiusmod high life accusamus terry richardson ad squid. Nihil
                                     anim keffiyeh helvetica, craft beer labore wes anderson cred
                                     nesciunt sapiente ea proident.
-                            {/* </CardBody>
-                            </Card> */}
                             </div>
                         </Collapse>
                     </button>
-
-                </p>
-                <p>
+                </div>
+                <div style={ { margin: '5px' }}>
                     <button className="collapsible" onClick={() => this.toggle1(4)}>
                         {this.state.block4 ?
                             <i className="zmdi zmdi-minus-circle-outline zmdi-hc-lg" style={{ margin: '5px' }}></i> :
@@ -128,20 +111,18 @@ export default class FAQ extends Component {
                         <Collapse isOpen={this.state.block4}>
                             <br />
                             <div style={{ marginLeft: '25px', color: 'gray' }} >
-                                {/* <Card>
-                                <CardBody> */}
+                               
                                     Anim pariatur cliche reprehenderit,
                                     enim eiusmod high life accusamus terry richardson ad squid. Nihil
                                     anim keffiyeh helvetica, craft beer labore wes anderson cred
                                     nesciunt sapiente ea proident.
-                            {/* </CardBody>
-                            </Card> */}
+                            
                             </div>
                         </Collapse>
                     </button>
 
-                </p>
-                <p>
+                </div>
+                <div style={ { margin: '5px' }}>
                     <button className="collapsible" onClick={() => this.toggle1(5)}>
                         {this.state.block5 ?
                             <i className="zmdi zmdi-minus-circle-outline zmdi-hc-lg" style={{ margin: '5px' }}></i> :
@@ -150,19 +131,14 @@ export default class FAQ extends Component {
                         <Collapse isOpen={this.state.block5}>
                             <br />
                             <div style={{ marginLeft: '25px', color: 'gray' }} >
-                                {/* <Card>
-                                <CardBody> */}
-                                    Anim pariatur cliche reprehenderit,
-                                    enim eiusmod high life accusamus terry richardson ad squid. Nihil
-                                    anim keffiyeh helvetica, craft beer labore wes anderson cred
-                                    nesciunt sapiente ea proident.
-                            {/* </CardBody>
-                            </Card> */}
+                                Anim pariatur cliche reprehenderit,
+                                enim eiusmod high life accusamus terry richardson ad squid. Nihil
+                                anim keffiyeh helvetica, craft beer labore wes anderson cred
+                                nesciunt sapiente ea proident.
                             </div>
                         </Collapse>
                     </button>
-
-                </p>
+                </div>
             </div>
         )
     }

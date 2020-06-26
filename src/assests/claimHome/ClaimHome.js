@@ -207,8 +207,10 @@ class ClaimHome extends Component {
                     </span>&nbsp;
                     <span style={{ fontSize: '15px' }}>Claims Process</span>
                     <p style={{ textAlign: 'center' }}>
-                        <label className={`${'lb'} ${this.state.active1}`} onClick={() => { this.clickHandler('process') }}>Process</label> &nbsp;
-                       <label className={`${'lb'} ${this.state.active2}`} onClick={() => { this.clickHandler('faq') }} >FAQ</label>
+                        <label className={`${'lb'} ${this.state.active1}`}
+                            onClick={() => { this.clickHandler('process') }}>Process</label> &nbsp;
+                       <label className={`${'lb'} ${this.state.active2}`}
+                            onClick={() => { this.clickHandler('faq') }} >FAQ</label>
                     </p>
                 </div>
 
