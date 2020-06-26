@@ -1,7 +1,7 @@
 .par{
     text-align: center;
     font-size: 20px;
-    color: red;
+    color: #c42121;
     font-weight: 600;
 }
 
@@ -21,7 +21,7 @@ input[type=text] {
 .search-btn{
     width: 135px;
     height: 49px;
-    background-color: red;
+    background-color: #c42121;
     border: none;
     color: white;
 }
@@ -30,6 +30,8 @@ input[type=text] {
 
 .collapsible {
     background-color: #eee;
+    background-image: linear-gradient(white, white,white, #eee);
+    /* background-image: linear-gradient(white, #f8f9fa); */
     color: black;
     cursor: pointer;
     padding: 18px;
@@ -39,7 +41,7 @@ input[type=text] {
     outline: none;
     font-size: 15px;
     /* border-radius: 8px; */
-    box-shadow: 0 0px 7px 0 #adb5bd;
+    box-shadow: 0 1px 0 0px #adb5bd;
     padding: 16px;
     text-align: start;
     background-color: #f1f1f1;
@@ -90,7 +92,7 @@ input[type=text] {
 
     .collapsible{
       width: auto;
-      text-align: -webkit-center;
+      /* text-align: -webkit-center; */
     }
 
     .content1{

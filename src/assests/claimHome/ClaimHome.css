@@ -55,6 +55,7 @@ body {
   .home{
       font-size: 15px;
       color: #036bfc;
+      margin-left: 15px;
   }
 
   .lb{
@@ -62,7 +63,7 @@ body {
   }
 
   .active_button{
-    color: red;
+    color: #c42121;
     cursor: pointer;
   }
 
@@ -153,7 +154,18 @@ body {
 
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px){
+    .top-header{
+      text-align: end;
+    }
+
+    /* .centered {
+      display: contents;
+      justify-content: center;
+    } */
+
+  }
+  @media screen and (min-width: 1108px)  {
     
     .img-home{
       margin-left: 207px;
@@ -167,7 +179,7 @@ body {
       display: flex;
       justify-content: space-between;
       padding-bottom: 0;
-      height: 70px;
+      height: 80px;
       align-items: center;
     }
   

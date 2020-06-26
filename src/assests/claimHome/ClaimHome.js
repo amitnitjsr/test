@@ -6,6 +6,7 @@ import facebookImg from '../../images/facebook.png';
 import twitterImg from '../../images/twitter.png';
 import linkedImg from '../../images/linkedin.png';
 import instagramImg from '../../images/instagram.png';
+import logo from '../../images/logo.png';
 import Process from '../../components/Process/Process';
 import FAQ from '../../components/FAQ/FAQ';
 import './ClaimHome.css';
@@ -102,7 +103,9 @@ class ClaimHome extends Component {
                     <label className="navbar-toggle" id="js-navbar-toggle" for="chkToggle">
                         <i className="fa fa-bars"></i>
                     </label>
-                    <label>Chola MS</label>
+                    {/* <label>Chola MS</label> */}
+                    <img src={logo} alt="not found" />
+
                     <input type="checkbox" id="chkToggle"></input>
                     <ul className="main-nav" id="js-menu">
                         <li>

@@ -1,10 +1,28 @@
 import React, { Component } from 'react';
 import Callback from '../../images/callback1.png';
-import HealthImg from '../../images/health.PNG';
+import HealthImg from '../../images/health7.PNG';
 import './Process.css';
 
 export default class Process extends Component {
-
+    state = {
+        active1: true,
+        active2: false,
+        active3: false,
+        active4: false,
+        active5: false,
+        active6: false,
+        active7: false,
+        step: 1,
+    }
+    stepHandler = (index) => {
+        this.setState(
+            {
+                active1: false, active2: false, active3: false,
+                active4: false, active5: false, active6: false, active7: false, step: index
+            }
+        )
+        this.setState({ [`active${index}`]: true });
+    }
     render() {
         return (
             <div className="process-content" >
@@ -24,20 +42,27 @@ export default class Process extends Component {
                         Process Steps
                     </span><br /><br />
                     <span>
-                        <ul>
-                            <li className="li active">1</li>
-                            <li className="li">2</li>
-                            <li className="li">3</li>
-                            <li className="li">4</li>
-                            <li className="li">5</li>
-                            <li className="li">6</li>
-                            <li className="li">7</li>
+                        <ul style={{ cursor: 'pointer' }}>
+                            <li className={`li ${this.state.active1 ? 'active' : ''}`}
+                                onClick={() => this.stepHandler(1)}>1</li>
+                            <li className={`li ${this.state.active2 ? 'active' : ''}`}
+                                onClick={() => this.stepHandler(2)}>2</li>
+                            <li className={`li ${this.state.active3 ? 'active' : ''}`}
+                                onClick={() => this.stepHandler(3)}>3</li>
+                            <li className={`li ${this.state.active4 ? 'active' : ''}`}
+                                onClick={() => this.stepHandler(4)}>4</li>
+                            <li className={`li ${this.state.active5 ? 'active' : ''}`}
+                                onClick={() => this.stepHandler(5)}>5</li>
+                            <li className={`li ${this.state.active6 ? 'active' : ''}`}
+                                onClick={() => this.stepHandler(6)}>6</li>
+                            <li className={`li ${this.state.active7 ? 'active' : ''}`}
+                                onClick={() => this.stepHandler(7)}>7</li>
                         </ul>
                     </span>
                 </p>
 
                 <p style={{ color: 'lightgrey', fontWeight: 'bold' }}>
-                    Step 1
+                    Step {this.state.step}
                 </p>
                 <p style={{ fontWeight: '600', fontSize: '20px', color: '#040480' }}>
                     Locate a network hospital
