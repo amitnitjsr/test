@@ -42,7 +42,7 @@ export default class FAQ extends Component {
                     <span>
                         <input type='text' placeholder='Search for a keyword or phrase' />
                     </span>
-                    &nbsp;
+                    &nbsp;&nbsp;&nbsp;
                     <span>
                         <button className="search-btn">SEARCH</button>
                     </span>

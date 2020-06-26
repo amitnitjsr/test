@@ -26,21 +26,21 @@ export default class Process extends Component {
     render() {
         return (
             <div className="process-content" >
-                <p>
+                <div>
                     <div className="btn-group">
                         <div className="d">
                             <button className="b1">Cashless</button>
                             <button className="b2" style={{ color: 'grey' }} >Reimbursement</button>
                         </div>
                     </div>
-                </p>
-                <p>
+                </div><br />
+                <div>
                     <img className="img" src={HealthImg} alt="not found" />
-                </p>
-                <p>
+                </div><br /><br />
+                <div>
                     <span style={{ fontSize: '20px', color: '#040480', fontWeight: '800' }}>
                         Process Steps
-                    </span><br /><br />
+                    </span><br /><br /><br />
                     <span>
                         <ul style={{ cursor: 'pointer' }}>
                             <li className={`li ${this.state.active1 ? 'active' : ''}`}
@@ -59,24 +59,25 @@ export default class Process extends Component {
                                 onClick={() => this.stepHandler(7)}>7</li>
                         </ul>
                     </span>
-                </p>
+                </div><br />
 
-                <p style={{ color: 'lightgrey', fontWeight: 'bold' }}>
+                <div style={{ color: 'lightgrey', fontWeight: 'bold' }}>
                     Step {this.state.step}
-                </p>
-                <p style={{ fontWeight: '600', fontSize: '20px', color: '#040480' }}>
+                </div><br />
+                <div style={{ fontWeight: '600', fontSize: '20px', color: '#040480' }}>
                     Locate a network hospital
-                     </p>
+                     </div><br />
                 <ul className="demo" >
                     <li style={{ listStyleType: 'disc' }} >Who performs it? Policy Holder</li>
-                    <li style={{ listStyleType: 'disc' }} >Locate a network hospital <a href="http://localhost:3000/">here</a></li>
-                </ul>
-                <hr />
-                <p>
+                    <li style={{ listStyleType: 'disc' }} >Locate a network hospital
+                    <a href="http://localhost:3000/" style={{ color: '#007bff' }}> here</a></li>
+                </ul><br />
+                <hr /><br />
+                <div>
                     <span className="img1"> <img src={Callback} alt="not found" /> </span>
                     We will keep you update on the status of your claim via SMS and email. You can also track
-                    ongoing claims <a href="http://localhost:3000"  >here</a>
-                </p>
+                    ongoing claims <a href="http://localhost:3000" style={{ color: '#007bff' }} >here</a>
+                </div><br />
             </div >
         )
     }
