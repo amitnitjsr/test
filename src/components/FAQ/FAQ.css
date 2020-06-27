@@ -118,5 +118,8 @@ input[type=text] {
 
   }
 
-  
+  .id{
+    text-align: start;
+    width: 10px;
+    }
   
