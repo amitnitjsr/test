@@ -1,18 +1,5 @@
 import React, { Component } from 'react';
-// import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import {
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
-} from 'reactstrap';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import Image from '../../images/home.PNG';
 import PhoneImg from '../../images/phone1.png';
 import facebookImg from '../../images/facebook.png';
@@ -36,7 +23,6 @@ class ClaimHome extends Component {
         customer: false,
         information: false,
         about: false,
-        isOpen: false,
     }
 
     clickHandler = (value) => {
@@ -52,29 +38,23 @@ class ClaimHome extends Component {
         }
     }
 
-    toggle = () => {
+    toggleProduct = () => {
         this.setState(
-            { isOpen: !this.state.isOpen }
+            { dropdownOpen: !this.state.dropdownOpen }
         )
     }
 
-    // toggleProduct = () => {
-    //     this.setState(
-    //         { dropdownOpen: !this.state.dropdownOpen }
-    //     )
-    // }
+    toggleCustomer = () => {
+        this.setState({ customer: !this.state.customer })
+    }
 
-    // toggleCustomer = () => {
-    //     this.setState({ customer: !this.state.customer })
-    // }
+    toggleInformation = () => {
+        this.setState({ information: !this.state.information })
+    }
 
-    // toggleInformation = () => {
-    //     this.setState({ information: !this.state.information })
-    // }
-
-    // toggleAbout = () => {
-    //     this.setState({ about: !this.state.about })
-    // }
+    toggleAbout = () => {
+        this.setState({ about: !this.state.about })
+    }
 
     render() {
         return (
@@ -118,90 +98,79 @@ class ClaimHome extends Component {
                     </p>
                 </div>
 
-                <Navbar color="light" light expand="md">
-                    <NavbarToggler onClick={() => this.toggle()} />
-                    <NavbarBrand href="/"><img src={logo} alt="not found" /></NavbarBrand>
-                    {this.state.isOpen && <NavbarBrand href="/"><i className="zmdi zmdi-account-o zmdi-hc-lg"></i></NavbarBrand>}
+                {/* menu bar header */}
+                <nav className="navbar">
+                    <label className="navbar-toggle" id="js-navbar-toggle" for="chkToggle">
+                        <i className="fa fa-bars"></i>
+                    </label>
+                    {/* <label>Chola MS</label> */}
+                    <img src={logo} alt="not found" />
 
-                    <Collapse isOpen={this.state.isOpen} navbar>
-                        <Nav className="mr-auto" navbar>
-                            <UncontrolledDropdown nav inNavbar>
-                                <DropdownToggle nav caret>
+                    <input type="checkbox" id="chkToggle"></input>
+                    <ul className="main-nav" id="js-menu">
+                        <li>
+                            <Dropdown isOpen={this.state.dropdownOpen} toggle={() => this.toggleProduct()}>
+                                <DropdownToggle className="drop" caret >
                                     Products
                                 </DropdownToggle>
-                                <DropdownMenu >
-                                    <DropdownItem>
-                                        Option 1
-                                    </DropdownItem>
-                                    <DropdownItem>
-                                        Option 2
-                                    </DropdownItem>
-                                    <DropdownItem>
-                                        Reset
-                                    </DropdownItem>
+                                <DropdownMenu>
+                                    <DropdownItem>Some Action</DropdownItem>
+                                    <DropdownItem divider />
+                                    <DropdownItem>Foo Action</DropdownItem>
+                                    <DropdownItem>Bar Action</DropdownItem>
+                                    <DropdownItem>Quo Action</DropdownItem>
                                 </DropdownMenu>
-                            </UncontrolledDropdown>
-
-                            <UncontrolledDropdown nav inNavbar>
-                                <DropdownToggle nav caret>
+                            </Dropdown>
+                        </li>
+                        <li>
+                            <Dropdown isOpen={this.state.customer} toggle={() => this.toggleCustomer()}>
+                                <DropdownToggle className="drop" caret >
                                     Customer Services
-                                </DropdownToggle>
-                                <DropdownMenu >
-                                    <DropdownItem>
-                                        Option 1
-                                    </DropdownItem>
-                                    <DropdownItem>
-                                        Option 2
-                                     </DropdownItem>
-                                    <DropdownItem>
-                                        Reset
-                                    </DropdownItem>
+                                     </DropdownToggle>
+                                <DropdownMenu>
+                                    <DropdownItem>Some Action</DropdownItem>
+                                    <DropdownItem divider />
+                                    <DropdownItem>Foo Action</DropdownItem>
+                                    <DropdownItem>Bar Action</DropdownItem>
+                                    <DropdownItem>Quo Action</DropdownItem>
                                 </DropdownMenu>
-                            </UncontrolledDropdown>
-
-                            <UncontrolledDropdown nav inNavbar>
-                                <DropdownToggle nav caret>
+                            </Dropdown>
+                        </li>
+                        <li>
+                            <Dropdown isOpen={this.state.information} toggle={() => this.toggleInformation()}>
+                                <DropdownToggle className="drop" caret >
                                     Information Center
-                                </DropdownToggle>
-                                <DropdownMenu >
-                                    <DropdownItem>
-                                        Option 1
-                                    </DropdownItem>
-                                    <DropdownItem>
-                                        Option 2
-                                    </DropdownItem>
-                                    <DropdownItem>
-                                        Reset
-                                    </DropdownItem>
+                                     </DropdownToggle>
+                                <DropdownMenu>
+                                    <DropdownItem>Some Action</DropdownItem>
+                                    <DropdownItem divider />
+                                    <DropdownItem>Foo Action</DropdownItem>
+                                    <DropdownItem>Bar Action</DropdownItem>
+                                    <DropdownItem>Quo Action</DropdownItem>
                                 </DropdownMenu>
-                            </UncontrolledDropdown>
-
-                            <UncontrolledDropdown nav inNavbar>
-                                <DropdownToggle nav caret>
+                            </Dropdown>
+                        </li>
+                        <li>
+                            <Dropdown isOpen={this.state.about} toggle={() => this.toggleAbout()}>
+                                <DropdownToggle className="drop" caret >
                                     About Us
-                                </DropdownToggle>
-                                <DropdownMenu >
-                                    <DropdownItem>
-                                        Option 1
-                                    </DropdownItem>
-                                    <DropdownItem>
-                                        Option 2
-                                    </DropdownItem>
-                                    <DropdownItem>
-                                        Reset
-                                    </DropdownItem>
+                                     </DropdownToggle>
+                                <DropdownMenu>
+                                    <DropdownItem>Some Action</DropdownItem>
+                                    <DropdownItem divider />
+                                    <DropdownItem>Foo Action</DropdownItem>
+                                    <DropdownItem>Bar Action</DropdownItem>
+                                    <DropdownItem>Quo Action</DropdownItem>
                                 </DropdownMenu>
-                            </UncontrolledDropdown>
-                            <NavItem>
-                                <NavLink href="https://github.com/reactstrap/reactstrap">Customer Testimonials</NavLink>
-                            </NavItem>
-                        </Nav>
-                        {/* <NavbarText>Simple Text</NavbarText> */}
+                            </Dropdown>
 
-                    </Collapse>
-
-                    {!this.state.isOpen && <NavbarBrand href="/"><i className="zmdi zmdi-account-o zmdi-hc-lg"></i></NavbarBrand>}
-                </Navbar>
+                        </li>
+                        <li style={{ margin: '5px', fontSize: '1rem', fontWeight: '400', cursor: 'pointer' }}>
+                            <span>Customer Testimonials</span>
+                        </li>
+                    </ul>
+                    <span><i className="zmdi zmdi-account-o zmdi-hc-lg"></i></span>
+                </nav>
 
                 {/* claim process img */}
                 <div >

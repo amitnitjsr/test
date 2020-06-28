@@ -96,6 +96,7 @@ class FAQ extends Component {
 
     searchHandler = () => {
         if (this.state.searchInput.length > 0) {
+            // eslint-disable-next-line
             const newData = data.filter(data => {
                 if (data.heading.toLowerCase().includes(this.state.searchInput.toLowerCase()) || data.content
                     .toLowerCase()

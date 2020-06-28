@@ -328,3 +328,7 @@ a:hover {
   position: relative;
 }
 
+.navbar-light .navbar-toggler {
+  color: rgba(222, 223, 228, 0.5);
+  border-color: transparent!important;
+}
