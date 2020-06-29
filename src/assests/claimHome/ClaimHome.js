@@ -58,28 +58,9 @@ class ClaimHome extends Component {
         )
     }
 
-    // toggleProduct = () => {
-    //     this.setState(
-    //         { dropdownOpen: !this.state.dropdownOpen }
-    //     )
-    // }
-
-    // toggleCustomer = () => {
-    //     this.setState({ customer: !this.state.customer })
-    // }
-
-    // toggleInformation = () => {
-    //     this.setState({ information: !this.state.information })
-    // }
-
-    // toggleAbout = () => {
-    //     this.setState({ about: !this.state.about })
-    // }
-
     render() {
         return (
             <div>
-
                 {/* Top header */}
                 <div className="header">
                     <p className="top-header" >
@@ -94,7 +75,6 @@ class ClaimHome extends Component {
                                     <strong>1800-208-5544</strong></a>
                             </span>&nbsp;
                             <span class="vl">
-
                             </span>&nbsp;
                             <span>
                                 Outside India<a href="tel:4430985300" title="+91-44-3098 5300"> <strong>+91-44-6166 3400</strong></a>
